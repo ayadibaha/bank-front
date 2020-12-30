@@ -1,43 +1,99 @@
-<div class="panel-header panel-header-sm">
-</div>
+<div class="panel-header panel-header-sm"></div>
 <div class="main-content">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title"> Simple Table</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                  <th>
-                    Id Produit
-                  </th>
-                  <th>
-                    Libelle
-                  </th>
-                  <th>
-                    Garanties
-                  </th>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let produit of produitAssurance">
-                    <td>
-                      {{produit.id}}
-                    </td>
-                    <td>
-                      {{produit.libelle}}
-                    </td>
-                    <td>
-                      {{produit.template.garanties.length}}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" (click)="open(mymodal)">
+        <i class="now-ui-icons ui-1_simple-add"></i> Produit Assurance
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste de produits d'assurance</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>Id Produit</th>
+                <th>Libelle</th>
+                <th>Garanties</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let produit of produitAssurance">
+                  <td>
+                    {{ produit.id }}
+                  </td>
+                  <td>
+                    {{ produit.libelle }}
+                  </td>
+                  <td>
+                    {{ produit.template.garanties.length }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajout d'un produit d'assurance</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nom du produit" [(ngModel)]="newProduitName" />
       </div>
+    </div>
+    <div>
+      <button (click)="addGarantie()" class="btn btn-sm btn-add-garantie">
+        <i class="now-ui-icons ui-1_simple-add"></i> Garantie
+      </button>
+    </div>
+    <div *ngFor="let garantie of garanties" class="col-md-12">
+      <div class="form-row">
+        <div class="col">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="garantie.name"
+            placeholder="Nom Garantie"
+          />
+        </div>
+        <div class="col">
+          <select class="form-control" [(ngModel)]="garantie.type">
+            <option value="">Select Type</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Texte">Texte</option>
+            <option value="Boolean">Vrai/Faux</option>
+            <option value="Pourcentage">Pourcentage</option>
+          </select>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="saveProduit(); modal.close('Save click')"
+    >
+      Enregistrer
+    </button>
+  </div>
+</ng-template>

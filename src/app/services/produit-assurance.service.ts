@@ -14,4 +14,8 @@ export class ProduitAssuranceService {
   getAll(): any{
     return this.client.get(`${url}/api/produit/all`);
   }
+
+  add_produit(newProduit: any): any{
+    return this.client.post(`${url}/api/produit/default/add`, newProduit);
+  }
 }
