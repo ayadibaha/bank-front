@@ -1,0 +1,95 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" (click)="open(mymodal)">
+        <i class="now-ui-icons ui-1_simple-add"></i> Comptes
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste de comptes</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+              <th>Id Account</th>
+              <th>Type</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let acc of accounts">
+                <td>
+                  {{ acc.idAccount }}
+                </td>
+                <td>
+                  {{ acc.type }}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajout d'un compte</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nom du produit" [(ngModel)]="newAccountName" />
+      </div>
+    </div>
+    <div>
+      <button (click)="addColumns()" class="btn btn-sm btn-add-garantie">
+        <i class="now-ui-icons ui-1_simple-add"></i> Columns
+      </button>
+    </div>
+    <div *ngFor="let column of columns" class="col-md-12">
+      <div class="form-row">
+        <div class="col">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="column.name"
+            placeholder="Nom Colonne"
+          />
+        </div>
+        <div class="col">
+          <select class="form-control" [(ngModel)]="column.type">
+            <option value="">Select Type</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Texte">Texte</option>
+            <option value="Boolean">Vrai/Faux</option>
+            <option value="Pourcentage">Pourcentage</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="saveAccount(); modal.close('Save click')"
+    >
+      Enregistrer
+    </button>
+  </div>
+</ng-template>

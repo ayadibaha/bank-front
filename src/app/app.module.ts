@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    AccountComponent
 
   ],
   providers: [],

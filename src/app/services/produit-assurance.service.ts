@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 const port = 8091;
-const url = `http://localhost:${port}`
+const url = `http://localhost:${port}`;
 
 @Injectable({
   providedIn: 'root'
