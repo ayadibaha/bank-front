@@ -1,0 +1,42 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste des contrat d'assurance</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>Produit</th>
+                <th>Date de creation</th>
+                <th>Validité</th>
+                <th>Liste des garanties</th>
+              </thead>
+              <tbody>
+                <!-- <tr *ngFor="let produit of produitAssurance">
+                  <td>
+                    {{ produit.id }}
+                  </td>
+                  <td>
+                    {{ produit.libelle }}
+                  </td>
+                  <td>
+                    {{ produit.template.garanties.length }}
+                  </td>
+                </tr> -->
+                <tr *ngIf="contracts.length === 0">
+                  <td class="not-found-table" colspan="4">
+                    Vous n'avez pas de contrat en cours!
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

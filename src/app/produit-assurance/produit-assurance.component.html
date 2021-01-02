@@ -11,7 +11,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Liste de produits d'assurance</h4>
+          <h4 class="card-title">Liste des produits d'assurance</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -32,6 +32,9 @@
                   <td>
                     {{ produit.template.garanties.length }}
                   </td>
+                </tr>
+                <tr *ngIf="produitAssurance.length === 0">
+                  <td class="not-found-table" colspan="3">Aucun Produit d'assurance trouvé!</td>
                 </tr>
               </tbody>
             </table>
@@ -90,7 +93,7 @@
   <div class="modal-footer">
     <button
       type="button"
-      class="btn btn-outline-dark"
+      class="btn btn-success"
       (click)="saveProduit(); modal.close('Save click')"
     >
       Enregistrer

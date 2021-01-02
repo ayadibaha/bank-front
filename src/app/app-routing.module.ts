@@ -9,7 +9,7 @@ import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'produitAssurance', component: ProduitAssuranceComponent },
+  // { path: 'produitAssurance', component: ProduitAssuranceComponent },
   // { path: 'user-profile', component: UserProfileComponent },
   // { path: 'table-list', component: TableListComponent },
   // { path: 'typography', component: TypographyComponent },
