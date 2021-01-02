@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
+import { ContratAssuranceComponent } from '../../contrat-assurance/contrat-assurance.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produi
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    ProduitAssuranceComponent
+    ProduitAssuranceComponent,
+    ContratAssuranceComponent
   ]
 })
 

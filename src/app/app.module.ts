@@ -12,10 +12,16 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance.component';
 import { OperationBancaireComponent } from './operation-bancaire/operation-bancaire.component';
 import { ListOperationBancaireComponent } from './list-operation-bancaire/list-operation-bancaire.component';
 
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AccountComponent } from './account/account.component';
+
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -30,9 +36,11 @@ import { ListOperationBancaireComponent } from './list-operation-bancaire/list-o
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    OperationBancaireComponent,
-    ListOperationBancaireComponent
 
+    OperationBancaireComponent,
+    ListOperationBancaireComponent,
+    LoginPageComponent,
+    AccountComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

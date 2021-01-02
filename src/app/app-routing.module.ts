@@ -11,9 +11,13 @@ import {ListOperationBancaireComponent} from './list-operation-bancaire/list-ope
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+
   { path: 'produitAssurance', component: ProduitAssuranceComponent },
   {path: 'operationBancaire' , component: OperationBancaire},
   {path: 'listOperationBancaire' , component: ListOperationBancaireComponent},
+
+  // { path: 'produitAssurance', component: ProduitAssuranceComponent },
+
   // { path: 'user-profile', component: UserProfileComponent },
   // { path: 'table-list', component: TableListComponent },
   // { path: 'typography', component: TypographyComponent },
