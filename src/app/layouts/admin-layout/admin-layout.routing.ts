@@ -9,13 +9,13 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
-<<<<<<< HEAD
+
 import {OperationBancaireComponent} from '../../operation-bancaire/operation-bancaire.component';
 import {ListOperationBancaireComponent} from '../../list-operation-bancaire/list-operation-bancaire.component';
-=======
+
 import { ContratAssuranceComponent } from '../../../app/contrat-assurance/contrat-assurance.component';
 import {AccountComponent} from '../../account/account.component';
->>>>>>> 50b1a132ee061068a54e534f5cd7e860e9fec268
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -27,12 +27,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'produitAssurance', component: ProduitAssuranceComponent},
-<<<<<<< HEAD
+
     { path: 'operationBancaire' , component: OperationBancaireComponent },
-  { path: 'listOperationBancaire' , component: ListOperationBancaireComponent }
-=======
-    { path: 'contratAssurance', component: ContratAssuranceComponent}
+  { path: 'listOperationBancaire' , component: ListOperationBancaireComponent },
+
+    { path: 'contratAssurance', component: ContratAssuranceComponent},
     { path: 'accounts',       component: AccountComponent}
 
->>>>>>> 50b1a132ee061068a54e534f5cd7e860e9fec268
+
 ];
