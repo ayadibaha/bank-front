@@ -6,20 +6,11 @@ declare interface RouteInfo {
   icon: string;
   class: string;
 }
-<<<<<<< HEAD
-=======
-export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
-  { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
-  { path: '/accounts', title: 'Comptes',  icon: 'design_app', class: '' },
-  { path: '/icons', title: 'Icons',  icon:'education_atom', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_map-big', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
->>>>>>> 55d1a7bb3bc266bf68425527ca0260d53f14b37b
 
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard', icon: 'design_app', class: '' },
   { path: '/produitAssurance', title: 'Produit Assurance', icon: 'design-2_ruler-pencil', class: '' },
+  { path: '/accounts', title: 'Comptes',  icon: 'design_app', class: '' },
   { path: '/contratAssurance', title: 'Contrat Assurance', icon: 'files_paper', class: ''},
   { path: '/icons', title: 'Icons', icon: 'education_atom', class: '' },
   { path: '/maps', title: 'Maps', icon: 'location_map-big', class: '' },

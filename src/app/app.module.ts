@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    AccountComponent
 
   ],
   providers: [],

@@ -9,11 +9,8 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
-<<<<<<< HEAD
 import { ContratAssuranceComponent } from '../../../app/contrat-assurance/contrat-assurance.component';
-=======
 import {AccountComponent} from '../../account/account.component';
->>>>>>> 55d1a7bb3bc266bf68425527ca0260d53f14b37b
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -25,10 +22,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'produitAssurance', component: ProduitAssuranceComponent},
-<<<<<<< HEAD
     { path: 'contratAssurance', component: ContratAssuranceComponent}
-=======
     { path: 'accounts',       component: AccountComponent}
 
->>>>>>> 55d1a7bb3bc266bf68425527ca0260d53f14b37b
 ];
