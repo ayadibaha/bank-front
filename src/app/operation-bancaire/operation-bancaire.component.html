@@ -1,0 +1,42 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> virement</h4>
+        </div>
+        <div class="card-body">
+          <div  style="width: 400px;">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">idAccount</label>
+              <input type="text" class="form-control" id="idAccount" required [(ngModel)]="op.source" name="idAccount">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Distinataire</label>
+              <input type="text" class="form-control" id="Distinataire" required [(ngModel)]="op.dist" name="Distinataire">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Description</label>
+              <input type="text" class="form-control" id="Description" required [(ngModel)]="op.libelle" name="Description">
+            </div>
+            <div class="form-group">
+              <label for="name">Montant</label>
+              <input type="text" class="form-control" id="Montant" required [(ngModel)]="op.montant" name="Montant">
+            </div>
+            <button type="submit" class="btn btn-primary">ajouterVirement</button>
+          </form>
+          </div>
+          <div [hidden]="!submitted">
+            <h4>Virement effectuer</h4>
+        <!--   <button class="btn btn-success" (click)="newVirement()">Add</button> -->
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

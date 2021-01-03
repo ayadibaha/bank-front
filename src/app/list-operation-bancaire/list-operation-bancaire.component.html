@@ -1,0 +1,36 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="mat-elevation-z8">
+          <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Distinataire</th>
+              <th>Description</th>
+              <th>Montant</th>
+              <th>Taux</th>
+              <th>dateOperation</th>
+              <th>etat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ops of operationBancaire | async ">
+              <td>{{ops.dist}}</td>
+              <td>{{ops.libelle}}</td>
+              <td>{{ops.montant}}</td>
+              <td>{{ops.taux}}</td>
+              <td>{{ops.date}}</td>
+              <td>{{ops.etat}}</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+  </div>
+</div>
