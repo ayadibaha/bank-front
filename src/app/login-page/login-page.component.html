@@ -1,1 +1,5 @@
-<p>login-page works!</p>
+<form>
+    <input type="text" [(ngModel)]="username" id="username" name="username" />
+    <input type="password" name="password" [(ngModel)]="password" id="password" />
+    <button (click)="doLogin()">Login</button>
+</form>
