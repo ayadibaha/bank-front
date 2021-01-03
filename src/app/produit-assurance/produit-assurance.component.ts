@@ -1,3 +1,6 @@
+/**
+ * Crée par le partenaire assurance
+ */
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
@@ -9,16 +12,19 @@ import { ProduitAssuranceService } from '../services/produit-assurance.service';
   styleUrls: ['./produit-assurance.component.css']
 })
 export class ProduitAssuranceComponent implements OnInit {
+  userType = "client";
+  selectedProduct = null;
   title = 'ng-bootstrap-modal-demo';
   closeResult: string;
   modalOptions: NgbModalOptions;
   newProduitName = "";
+  newProduitDescription = "";
   garanties = [];
   produitAssurance = [];
-  constructor(private service: ProduitAssuranceService, private modalService: NgbModal, private renderer: Renderer2, @Inject(DOCUMENT) private document) {
+  constructor(private service: ProduitAssuranceService, private modalService: NgbModal) {
     this.modalOptions = {
       backdrop: 'static',
-      backdropClass: 'customBackdrop'
+      backdropClass: 'customBackdrop',
     }
   }
 
@@ -31,6 +37,16 @@ export class ProduitAssuranceComponent implements OnInit {
   open(content) {
     this.garanties = [];
     this.newProduitName = "";
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  openModal(content, data){
+    this.selectedProduct = data;
+    console.log(data);
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -51,19 +67,22 @@ export class ProduitAssuranceComponent implements OnInit {
   addGarantie(){
     this.garanties.push({
       name: "",
-      type: ""
+      type: "",
+      isRequired: false
     })
   }
 
   saveProduit(){
     let newProduit = {
       libelle: this.newProduitName,
+      description: this.newProduitDescription,
       template: {
         garanties: this.garanties
       }
     }
-    this.service.add_produit(newProduit).subscribe((response)=>{
-     this.produitAssurance.push(response);
-    });
+    console.log("New produit", newProduit);
+    // this.service.add_produit(newProduit).subscribe((response)=>{
+    //  this.produitAssurance.push(response);
+    // });
   }
 }

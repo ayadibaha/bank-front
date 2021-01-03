@@ -18,3 +18,11 @@
     font-size: large;
     background-color: rgb(247, 247, 247);
 }
+
+#isRequired{
+    display:inline-block
+}
+
+textarea{
+    border: 1px solid #E3E3E3
+}

@@ -22,7 +22,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'produitAssurance', component: ProduitAssuranceComponent},
-    { path: 'contratAssurance', component: ContratAssuranceComponent}
-    { path: 'accounts',       component: AccountComponent}
+    { path: 'contratAssurance', component: ContratAssuranceComponent},
+    { path: 'accounts',       component: AccountComponent},
 
 ];

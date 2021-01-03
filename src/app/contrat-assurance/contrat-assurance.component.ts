@@ -1,3 +1,6 @@
+/**
+ * Consulté par les clients
+ */
 import { Component, OnInit } from '@angular/core';
 
 interface ContractType {
@@ -13,6 +16,7 @@ interface ContractType {
   styleUrls: ['./contrat-assurance.component.css']
 })
 export class ContratAssuranceComponent implements OnInit {
+  
   contracts: ContractType[] = [];
   constructor() { }
 
