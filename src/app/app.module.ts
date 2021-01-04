@@ -26,6 +26,9 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
+import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+
 import { isTemplateExpression } from 'typescript';
 
 registerLocaleData(en);
@@ -44,6 +47,8 @@ registerLocaleData(en);
     NzButtonModule,
     NzLayoutModule,
     NzIconModule,
+    NzImageModule,
+    NzTypographyModule,
     NzFormModule,
     ToastrModule.forRoot()
   ],
