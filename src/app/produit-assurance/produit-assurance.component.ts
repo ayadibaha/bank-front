@@ -80,9 +80,25 @@ export class ProduitAssuranceComponent implements OnInit {
         garanties: this.garanties
       }
     }
-    console.log("New produit", newProduit);
-    // this.service.add_produit(newProduit).subscribe((response)=>{
-    //  this.produitAssurance.push(response);
-    // });
+    this.service.add_produit(newProduit).subscribe((response)=>{
+     this.produitAssurance.push(response);
+    });
+  }
+
+  saveDemande(){
+    let garanties = [];
+    for(let i in this.selectedProduct.template.garanties){
+      let g = this.selectedProduct.template.garanties[i];
+      let gValue = {};
+      gValue[g.name] = g.value?g.value:null;
+      garanties.push(gValue)
+    }
+    console.log(garanties);
+    let newDemande = {
+      produit: this.selectedProduct.id,
+      userContractId:"",//to leave right now
+      garanties: garanties
+    }
+    console.log("SELECTED", newDemande);
   }
 }

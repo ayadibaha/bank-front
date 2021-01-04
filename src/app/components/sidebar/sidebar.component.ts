@@ -17,6 +17,8 @@ let ROUTES_CLIENT :RouteInfo[] = [
 
 let ROUTES_EMPLOYEE :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
+  { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
 ];
 
 let ROUTES_INSURANCE :RouteInfo[] = [
