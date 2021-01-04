@@ -1,5 +1,32 @@
-<form>
-    <input type="text" [(ngModel)]="username" id="username" name="username" />
-    <input type="password" name="password" [(ngModel)]="password" id="password" />
-    <button (click)="doLogin()">Login</button>
-</form>
+<nz-layout>
+    <nz-header>
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      </ul>
+      <form class ="login" nz-form [nzLayout]="'inline'"  (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Saisir votre Email!">
+              <nz-input-group nzPrefixIcon="user">
+                <input  nz-input placeholder="Email" [(ngModel)]="username" [ngModelOptions]="{standalone: true} "/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Verifier votre mot de passe!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input  nz-input type="password" placeholder="mot de passe" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control>
+              <button nz-button nzType="primary"  (click)="doLogin()">Se connecter</button>
+              <button nz-button nzType="default" >S'inscrire</button>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+    </nz-header>
+   
+   
+  </nz-layout>
+  
