@@ -126,8 +126,15 @@
   </div>
   <div class="modal-body">
     <div class="col-md-12 px-1">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nom du produit" [(ngModel)]="newProduitName" />
+      <h3>{{selectedProduct.libelle}}</h3>
+      <p>{{selectedProduct.description}}</p>
+    </div>
+    <div class="col-md-12 px-1">
+      <div *ngFor="let garantie of selectedProduct.template.garanties">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Texte'" type="text" [(ngModel)]="garantie.value" class="form-control" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Nombre'" type="number" [(ngModel)]="garantie.value" class="form-control" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Pourcentage'" type="text" [(ngModel)]="garantie.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="garantie.value" class="form-control" value="{{garantie.name}}">
       </div>
     </div>
   </div>
@@ -135,7 +142,7 @@
     <button
       type="button"
       class="btn btn-success"
-      (click)="saveProduit(); modal.close('Save click')"
+      (click)="saveDemande();modal.close('Save click')"
     >
       Enregistrer
     </button>
