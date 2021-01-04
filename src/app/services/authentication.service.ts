@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/User';
@@ -10,10 +11,15 @@ import config from '../utils/config';
 })
 export class AuthenticationService {
 
-    public currentUser: Observable<User>;
+    
 
     constructor(private http: HttpClient) {
         // this.currentUser = this.currentUserSubject.asObservable();
+    }
+    
+     currentUser() : any{
+        
+        return localStorage.getItem("token")?jwtDecode(localStorage.getItem("token")):null;
     }
 
     public get currentTokenValue(): string {
