@@ -13,12 +13,12 @@ let ROUTES_CLIENT :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
   { path: '/operationBancaire', title: 'operationbancaire',  icon: 'ui-1_simple-add' , class: '' },
   {path: '/listOperationBancaire' , title: 'listOperationBancaire', icon: 'files_single-copy-04', class: '' },
+  { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
+  { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
 ];
 
 let ROUTES_EMPLOYEE :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
-  { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
-  { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
 ];
 
 let ROUTES_INSURANCE :RouteInfo[] = [

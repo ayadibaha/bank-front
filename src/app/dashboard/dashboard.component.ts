@@ -63,9 +63,6 @@ export class DashboardComponent implements OnInit {
     private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit() {
-    if(!this.auth.currentTokenValue){
-      this.router.navigate(["/login"]);
-    }
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");

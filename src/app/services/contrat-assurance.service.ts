@@ -9,10 +9,10 @@ export class ContratAssuranceService {
   constructor(private client: HttpClient) { }
 
   getAll(){
-    return this.client.get(`${config.serverURL}/api/contrat-assurance/`)
+    return this.client.get(`${config.serverURL}/api/contrat-assurance/all`)
   }
 
-  get(id: number) {
-
+  demanderProduitAssurance(demande){
+    return this.client.post(`${config.serverURL}/api/contrat-assurance/add`, demande);
   }
 }
