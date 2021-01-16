@@ -2,6 +2,7 @@
  * Consulté par les clients
  */
 import { Component, OnInit } from '@angular/core';
+import { ContratAssuranceService } from '../services/contrat-assurance.service';
 
 interface ContractType {
   produit_assurance: String;
@@ -16,11 +17,14 @@ interface ContractType {
   styleUrls: ['./contrat-assurance.component.css']
 })
 export class ContratAssuranceComponent implements OnInit {
-  
   contracts: ContractType[] = [];
-  constructor() { }
+  constructor(private contratService: ContratAssuranceService) { }
 
   ngOnInit(): void {
+    this.contratService.getAll().subscribe((response:any)=>{
+      console.log("response", response);
+      this.contracts = response;
+    })
   }
 
 }

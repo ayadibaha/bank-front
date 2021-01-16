@@ -12,8 +12,6 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
-import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance.component';
 import { OperationBancaireComponent } from './operation-bancaire/operation-bancaire.component';
 import { ListOperationBancaireComponent } from './list-operation-bancaire/list-operation-bancaire.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';

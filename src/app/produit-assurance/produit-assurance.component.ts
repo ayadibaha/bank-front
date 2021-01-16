@@ -4,6 +4,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../services/authentication.service';
+import { ContratAssuranceService } from '../services/contrat-assurance.service';
 import { ProduitAssuranceService } from '../services/produit-assurance.service';
 
 @Component({
@@ -21,7 +23,7 @@ export class ProduitAssuranceComponent implements OnInit {
   newProduitDescription = "";
   garanties = [];
   produitAssurance = [];
-  constructor(private service: ProduitAssuranceService, private modalService: NgbModal) {
+  constructor(private contratService: ContratAssuranceService, private service: ProduitAssuranceService, private modalService: NgbModal, private auth: AuthenticationService) {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop',
@@ -86,19 +88,19 @@ export class ProduitAssuranceComponent implements OnInit {
   }
 
   saveDemande(){
-    let garanties = [];
+    let garanties = {};
     for(let i in this.selectedProduct.template.garanties){
       let g = this.selectedProduct.template.garanties[i];
-      let gValue = {};
-      gValue[g.name] = g.value?g.value:null;
-      garanties.push(gValue)
+      garanties[g.name] = g.value?g.value:null;
     }
     console.log(garanties);
     let newDemande = {
       produit: this.selectedProduct.id,
-      userContractId:"",//to leave right now
+      userContractId:this.auth.currentUser()?this.auth.currentUser().contractId:"",
       garanties: garanties
     }
-    console.log("SELECTED", newDemande);
+    this.contratService.demanderProduitAssurance(newDemande).subscribe((response)=>{
+      console.log(response);
+    })
   }
 }

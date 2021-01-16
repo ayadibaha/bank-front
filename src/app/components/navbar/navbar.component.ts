@@ -4,6 +4,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
 import jwtDecode from 'jwt-decode';
+import { AuthenticationService } from '../../../app/services/authentication.service';
 
 declare interface RouteInfo {
   path: string;
@@ -73,12 +74,16 @@ export class NavbarComponent implements OnInit {
 
   public isCollapsed = true;
 
-  constructor(location: Location, private element: ElementRef, private router: Router) {
+  constructor(private auth: AuthenticationService, location: Location, private element: ElementRef, private router: Router) {
     this.location = location;
     this.sidebarVisible = false;
   }
 
   ngOnInit() {
+    
+    if(!this.auth.currentTokenValue){
+      this.router.navigate(["/login"]);
+    }
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
