@@ -19,6 +19,7 @@
               <thead class="text-primary">
               <th>Id Account</th>
               <th>Type</th>
+              <th>Actions</th>
               </thead>
               <tbody>
               <tr *ngFor="let acc of accounts">
@@ -27,6 +28,12 @@
                 </td>
                 <td>
                   {{ acc.type }}
+                </td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteAccount(acc.idAccount)">Supprimer</button>
+                </td>
+                <td>
+                  <button class="btn btn-default" (click)="openModal(demandeModal, acc)">Modifier</button>
                 </td>
               </tr>
               </tbody>
@@ -90,6 +97,77 @@
       (click)="saveAccount(); modal.close('Save click')"
     >
       Enregistrer
+    </button>
+  </div>
+</ng-template>
+
+<!-- Demande modification modal -->
+<ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex" >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Plus de détails sur le compte</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <tr [pEditableRow]="rowData"  >
+    <td>
+      <p-cellEditor>
+        <ng-template pTemplate="input">
+          <input pInputText type="text"  [(ngModel)]="rowData.type" >
+        </ng-template>
+        <ng-template pTemplate="output">
+          <div [ngClass]="{'black': true}" >
+            {{ rowData.type}}
+          </div>
+        </ng-template>
+      </p-cellEditor>
+    </td>
+
+    <td>
+      <p-cellEditor>
+        <ng-template pTemplate="input">
+          <input pInputText type="text" [(ngModel)]="rowData.columnsAccounts" >
+        </ng-template>
+        <ng-template pTemplate="output">
+          <div [ngClass]="{'black': true}" >
+            {{ rowData.columnsAccounts}}
+          </div>
+        </ng-template>
+      </p-cellEditor>
+    </td>
+    <td >
+    </td>
+  </tr>
+</ng-template>
+<ng-template #demandeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Plus de détails sur le compte</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <input pInputText type="text" class="form-control"  [(ngModel)]="modal.idAccount" />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success"
+     > Modifier
     </button>
   </div>
 </ng-template>
