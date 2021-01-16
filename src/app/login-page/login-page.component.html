@@ -1,9 +1,20 @@
 <nz-layout>
     <nz-header>
-      <div class="logo"></div>
+      <div class="logo">
+        <img
+        nz-image
+        width="80px"
+        height="80px"
+        nzSrc="../assets/img/bank.jpg"
+        alt=""
+      />
+      </div>
+     
+      
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
       </ul>
-      <form class ="login" nz-form [nzLayout]="'inline'">
+      
+      <form class ="login" nz-form [nzLayout]="'inline'"  (ngSubmit)="submitForm()">
           <nz-form-item>
             <nz-form-control nzErrorTip="Saisir votre Email!">
               <nz-input-group nzPrefixIcon="user">
@@ -26,6 +37,14 @@
           </nz-form-item>
         </form>
     </nz-header>
+    <nz-body>
+     
+            <img nz-image width="755px" height="500px" nzSrc="../assets/img/assurance.jpg" alt="" />
+            <img nz-image width="755px" height="500px" nzSrc="../assets/img/agent.jpg" alt="" />
+            <br/>
+            <img nz-image width="755px" height="500px"  nzSrc="../assets/img/bourse.jpg" alt="" />
+            <img nz-image width="755px" height="500px" nzSrc="../assets/img/safe.jpg" alt="" />
+    </nz-body>
    
    
   </nz-layout>

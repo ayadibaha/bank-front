@@ -1,7 +1,6 @@
 .logo {
     width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
+    height: 20px;
     margin: 16px 24px 16px 0;
     float: left;
   }
@@ -23,7 +22,7 @@
   }
 
   nz-header{
-      background-color: indigo;
+      background-color:ghostwhite;
       height: 100px;
   }
 
@@ -38,10 +37,12 @@
     min-height: 280px;
   }
   .pwd{
+        height: 20px;
       width : 200px;
   }
 
   .username{
+    height: 20px;
     width : 200px;
 }
 .login{
