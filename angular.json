@@ -19,9 +19,16 @@
             "allowedCommonJsDependencies": ["hammerjs", "chart.js"],
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
+             
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/scss/now-ui-dashboard.scss",
@@ -79,6 +86,8 @@
               "node_modules/chart.js/dist/Chart.min.js"
             ],
             "styles": [
+              
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/scss/now-ui-dashboard.scss",
