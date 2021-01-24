@@ -10,9 +10,6 @@ import config from '../utils/config';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-    
-
     constructor(private http: HttpClient) {
         // this.currentUser = this.currentUserSubject.asObservable();
     }

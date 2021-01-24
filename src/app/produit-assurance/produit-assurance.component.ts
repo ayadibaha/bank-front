@@ -14,7 +14,7 @@ import { ProduitAssuranceService } from '../services/produit-assurance.service';
   styleUrls: ['./produit-assurance.component.css']
 })
 export class ProduitAssuranceComponent implements OnInit {
-  userType = "client";
+  userType = "insurance_partner";
   selectedProduct = null;
   title = 'ng-bootstrap-modal-demo';
   closeResult: string;
