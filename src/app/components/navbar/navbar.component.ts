@@ -71,7 +71,6 @@ export class NavbarComponent implements OnInit {
   mobile_menu_visible: any = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
-
   public isCollapsed = true;
 
   constructor(private auth: AuthenticationService, location: Location, private element: ElementRef, private router: Router) {

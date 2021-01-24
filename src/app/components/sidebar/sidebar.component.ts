@@ -23,6 +23,7 @@ let ROUTES_EMPLOYEE :RouteInfo[] = [
 
 let ROUTES_INSURANCE :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/contratAssurance', title: 'Demandes Assurance',  icon: 'design_app', class: '' },
   { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
 ];
 
@@ -71,12 +72,28 @@ switch (user.rol){
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
+  private role: string = "";
   constructor(private auth:AuthenticationService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.auth.currentUser())
    
+    if(localStorage.getItem("token")){
+      let user : any=jwtDecode(localStorage.getItem("token"));
+    
+    switch (user.rol){
+      case 1: this.role = "Espace Client";
+      break;
+      case 2: this.role = "Espace Employee";
+      break;
+      case 3: this.role = "Espace Assurance";
+      break;
+      case 4: this.role = "Administration";
+      break;
+        
+    }
+    }
   }
 
   isMobileMenu() {

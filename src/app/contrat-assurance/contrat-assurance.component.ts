@@ -1,5 +1,5 @@
 /**
- * Consulté par les clients
+ * Consulté par le partenaire assurance
  */
 import { Component, OnInit } from '@angular/core';
 import { ContratAssuranceService } from '../services/contrat-assurance.service';
