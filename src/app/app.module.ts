@@ -28,6 +28,7 @@ import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 import { isTemplateExpression } from 'typescript';
+import { ContratAccountComponent } from './contrat-account/contrat-account.component';
 
 registerLocaleData(en);
 
@@ -57,7 +58,8 @@ registerLocaleData(en);
     OperationBancaireComponent,
     ListOperationBancaireComponent,
     LoginPageComponent,
-    AccountComponent
+    AccountComponent,
+    ContratAccountComponent
   ],
  
   bootstrap: [AppComponent],

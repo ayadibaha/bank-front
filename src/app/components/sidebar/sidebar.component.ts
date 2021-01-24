@@ -12,13 +12,17 @@ declare interface RouteInfo {
 let ROUTES_CLIENT :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
   { path: '/operationBancaire', title: 'operationbancaire',  icon: 'ui-1_simple-add' , class: '' },
-  {path: '/listOperationBancaire' , title: 'listOperationBancaire', icon: 'files_single-copy-04', class: '' },
+  { path: '/listOperationBancaire' , title: 'listOperationBancaire', icon: 'files_single-copy-04', class: '' },
   { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
   { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
+  { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
+
 ];
 
 let ROUTES_EMPLOYEE :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
+  { path: '/contratAccount', title: 'Accounts Contract',  icon: 'files_single-copy-04', class: '' },
 ];
 
 let ROUTES_INSURANCE :RouteInfo[] = [
@@ -29,13 +33,15 @@ let ROUTES_INSURANCE :RouteInfo[] = [
 
 let ROUTES_ADMIN :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
+  { path: '/contratAccount', title: 'Accounts Contract',  icon: 'files_single-copy-04', class: '' },
 ];
 
 /*export const ROUTES: RouteInfo[] = [
-  
- 
-  
- 
+
+
+
+
     { path: '/icons', title: 'Icons',  icon:'education_atom', class: '' },
     { path: '/maps', title: 'Maps',  icon:'location_map-big', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
@@ -56,7 +62,7 @@ switch (user.rol){
   break;
   case 4: ROUTES = ROUTES_ADMIN;
   break;
-    
+
 }
 }
 
