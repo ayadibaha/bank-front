@@ -3,6 +3,8 @@ import {ModalDismissReasons, NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-b
 import {ProduitAssuranceService} from '../services/produit-assurance.service';
 import {DOCUMENT} from '@angular/common';
 import {AccountService} from '../services/account.service';
+import {ContratAssuranceService} from '../services/contrat-assurance.service';
+import {ContratAccountService} from '../services/contrat-account.service';
 
 @Component({
   selector: 'app-account',
@@ -11,6 +13,7 @@ import {AccountService} from '../services/account.service';
 })
 export class AccountComponent implements OnInit {
 
+  userType = 'employee';
   title = 'ng-bootstrap-modal-demo';
   closeResult: string;
   modalOptions: NgbModalOptions;
@@ -21,8 +24,9 @@ export class AccountComponent implements OnInit {
   column : any;
   @Input() event: Event;
   idEvent : any;
+  contrats = [];
 
-  constructor(private service: AccountService, private modalService: NgbModal, private renderer: Renderer2, @Inject(DOCUMENT) private document) {
+  constructor(private contratService: ContratAccountService, private service: AccountService, private modalService: NgbModal, private renderer: Renderer2, @Inject(DOCUMENT) private document) {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
@@ -114,5 +118,15 @@ export class AccountComponent implements OnInit {
     }
   }
 
+
+  saveContrat(idAccount: number, idUser: number) {
+    const newContrat = {
+      accountId : idAccount,
+      clientId : idUser,
+    };
+    this.contratService.adhererAccount(newContrat).subscribe((response) => {
+      this.contrats.push(response);
+    });
+  }
 
 }

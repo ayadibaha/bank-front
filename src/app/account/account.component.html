@@ -29,11 +29,14 @@
                 <td>
                   {{ acc.type }}
                 </td>
-                <td>
+                <td *ngIf="userType == 'employee'">
                   <button class="btn btn-danger" (click)="deleteAccount(acc.idAccount)">Supprimer</button>
                 </td>
                 <td>
                   <button class="btn btn-default" (click)="openModal(demandeModal, acc)">Modifier</button>
+                </td>
+                <td>
+                  <button class="btn btn-primary" >Adhérer</button> <!-- (click)="saveContrat(acc.idAccount, userid )" -->
                 </td>
               </tr>
               </tbody>

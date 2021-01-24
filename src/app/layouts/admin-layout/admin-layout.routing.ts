@@ -15,6 +15,7 @@ import {ListOperationBancaireComponent} from '../../list-operation-bancaire/list
 
 import { ContratAssuranceComponent } from '../../../app/contrat-assurance/contrat-assurance.component';
 import {AccountComponent} from '../../account/account.component';
+import {ContratAccountComponent} from '../../contrat-account/contrat-account.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -32,7 +33,8 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'listOperationBancaire' , component: ListOperationBancaireComponent },
 
     { path: 'contratAssurance', component: ContratAssuranceComponent},
-    { path: 'accounts',       component: AccountComponent}
+    { path: 'accounts',       component: AccountComponent},
+    { path: 'contratAccount',       component: ContratAccountComponent}
 
 
 ];
