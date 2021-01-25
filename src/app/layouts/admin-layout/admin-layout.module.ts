@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
 import { ContratAssuranceComponent } from '../../contrat-assurance/contrat-assurance.component';
+import { UserApprovalComponent } from '../../user-approval/user-approval.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { ContratAssuranceComponent } from '../../contrat-assurance/contrat-assur
     MapsComponent,
     NotificationsComponent,
     ProduitAssuranceComponent,
-    ContratAssuranceComponent
+    ContratAssuranceComponent,
+    UserApprovalComponent
   ]
 })
 

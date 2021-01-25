@@ -33,20 +33,10 @@ let ROUTES_INSURANCE :RouteInfo[] = [
 
 let ROUTES_ADMIN :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/users', title: 'User Approval',  icon: 'files_single-copy-04', class: '' },
   { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
   { path: '/contratAccount', title: 'Accounts Contract',  icon: 'files_single-copy-04', class: '' },
 ];
-
-/*export const ROUTES: RouteInfo[] = [
-
-
-
-
-    { path: '/icons', title: 'Icons',  icon:'education_atom', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_map-big', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
-
-];*/
 
 let ROUTES : RouteInfo[] = [];
 

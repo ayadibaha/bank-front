@@ -16,6 +16,7 @@ import {ListOperationBancaireComponent} from '../../list-operation-bancaire/list
 import { ContratAssuranceComponent } from '../../../app/contrat-assurance/contrat-assurance.component';
 import {AccountComponent} from '../../account/account.component';
 import {ContratAccountComponent} from '../../contrat-account/contrat-account.component';
+import { UserApprovalComponent } from '../../user-approval/user-approval.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -34,7 +35,8 @@ export const AdminLayoutRoutes: Routes = [
 
     { path: 'contratAssurance', component: ContratAssuranceComponent},
     { path: 'accounts',       component: AccountComponent},
-    { path: 'contratAccount',       component: ContratAccountComponent}
+    { path: 'contratAccount',       component: ContratAccountComponent},
+    { path: 'users',       component: UserApprovalComponent},
 
 
 ];
