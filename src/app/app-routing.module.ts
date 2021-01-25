@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProduitAssuranceComponent } from './produit-assurance/produit-assurance.component';
 import {OperationBancaire} from './module/OperationBancaire';
 import {ListOperationBancaireComponent} from './list-operation-bancaire/list-operation-bancaire.component';
+import { UserApprovalComponent } from './user-approval/user-approval.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'produitAssurance', component: ProduitAssuranceComponent },
   {path: 'operationBancaire' , component: OperationBancaire},
   {path: 'listOperationBancaire' , component: ListOperationBancaireComponent},
+  {path: 'users' , component: UserApprovalComponent},
 
   // { path: 'produitAssurance', component: ProduitAssuranceComponent },
 

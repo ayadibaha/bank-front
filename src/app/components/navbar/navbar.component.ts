@@ -34,7 +34,7 @@ let ROUTES_INSURANCE :RouteInfo[] = [
 
 let ROUTES_ADMIN :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
-
+  { path: '/users', title: 'User Approval',  icon: 'design_app', class: '' },
 ];
 
 /*export const ROUTES: RouteInfo[] = [

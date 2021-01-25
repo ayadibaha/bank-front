@@ -10,25 +10,37 @@
           <div class="table-responsive">
             <table class="table">
               <thead class="text-primary">
+                <th>Date</th>
                 <th>Produit</th>
-                <th>Date de creation</th>
+                <th>Client</th>
                 <th>Validité</th>
                 <th>Liste des garanties</th>
+                <th *ngIf="role == 3">Action</th>
               </thead>
               <tbody>
-                <!-- <tr *ngFor="let produit of produitAssurance">
+                <tr *ngFor="let contract of contracts">
                   <td>
-                    {{ produit.id }}
+                    {{ contract?.date_creation | date:'medium' }}
                   </td>
                   <td>
-                    {{ produit.libelle }}
+                    {{ contract?.produit_assurance?.libelle }}
                   </td>
                   <td>
-                    {{ produit.template.garanties.length }}
+                    {{ contract?.account?.client?.email }}
                   </td>
-                </tr> -->
+                  <td>
+                    {{ contract.valid?"Valide":"Non Valide" }}
+                  </td>
+                  <td>
+                    {{ contract?.garanties?.length }}
+                  </td>
+                  <td *ngIf="role == 3">
+                    <button (click)="acceptContract(contract.id)">Accept</button>
+                    <button (click)="refuseContract(contract.id)">Refuse</button>
+                  </td>
+                </tr>
                 <tr *ngIf="contracts.length === 0">
-                  <td class="not-found-table" colspan="4">
+                  <td class="not-found-table" colspan="3">
                     Vous n'avez pas de contrat en cours!
                   </td>
                 </tr>

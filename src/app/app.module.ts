@@ -29,6 +29,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 import { isTemplateExpression } from 'typescript';
 import { ContratAccountComponent } from './contrat-account/contrat-account.component';
+import { UserApprovalComponent } from './user-approval/user-approval.component';
 
 registerLocaleData(en);
 
