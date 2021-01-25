@@ -38,4 +38,5 @@ export class ContratAccountComponent implements OnInit {
 
 
 
+
 }

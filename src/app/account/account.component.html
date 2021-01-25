@@ -19,6 +19,7 @@
               <thead class="text-primary">
               <th>Id Account</th>
               <th>Type</th>
+              <th>Description</th>
               <th>Actions</th>
               </thead>
               <tbody>
@@ -29,14 +30,17 @@
                 <td>
                   {{ acc.type }}
                 </td>
-                <td *ngIf="userType == 'employee'">
+                <td>
+                  {{ acc.description }}
+                </td>
+                <td *ngIf="role == 2">
                   <button class="btn btn-danger" (click)="deleteAccount(acc.idAccount)">Supprimer</button>
                 </td>
-                <td>
+                <td *ngIf="role == 2">
                   <button class="btn btn-default" (click)="openModal(demandeModal, acc)">Modifier</button>
                 </td>
-                <td>
-                  <button class="btn btn-primary" >Adhérer</button> <!-- (click)="saveContrat(acc.idAccount, userid )" -->
+                <td *ngIf="role == 1">
+                  <button class="btn btn-primary" (click)="saveContrat(acc.idAccount)">Adhérer</button> <!-- (click)="saveContrat(acc.idAccount, userid )" -->
                 </td>
               </tr>
               </tbody>
@@ -64,6 +68,11 @@
     <div class="col-md-12 px-1">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Nom du produit" [(ngModel)]="newAccountName" />
+      </div>
+    </div>
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <textarea rows="3" type="text" class="form-control" placeholder="Description" [(ngModel)]="newAccountDescription"></textarea>
       </div>
     </div>
     <div>
