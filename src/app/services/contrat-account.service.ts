@@ -24,4 +24,12 @@ export class ContratAccountService {
     var headers_object = new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'));
     return this.client.post(`${url}/add`, newContrat, {headers: headers_object});
   }
+
+  isUnique(idAccount: number): any {
+    return this.client.get(`${url}/isUnique/${idAccount}`);
+  }
+
+  getCaracContrat(idContrat: number): any{
+    return this.client.get(`${url}/getCaracContrat/${idContrat}`);
+  }
 }

@@ -28,6 +28,10 @@ export class AccountComponent implements OnInit {
   idEvent: any;
   contrats = [];
   role = '';
+  cl = '';
+  columnsDefault = [];
+  carac = [];
+  accountsCl = null;
 
   constructor(private contratService: ContratAccountService, private service: AccountService, private modalService: NgbModal, private renderer: Renderer2, @Inject(DOCUMENT) private document) {
     this.modalOptions = {
@@ -43,7 +47,12 @@ export class AccountComponent implements OnInit {
       this.role = user.rol;
     }
     this.service.getAll().subscribe((response) => {
+      console.log(response);
       this.accounts = response;
+    });
+    this.service.getAccountsClient().subscribe((response) => {
+      console.log('les account clients', response);
+      this.accountsCl = response;
     });
   }
 
@@ -68,10 +77,20 @@ export class AccountComponent implements OnInit {
     }
   }
 
+  openColumns(content, data) {
+    this.selectedAccount = data;
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
   addColumns() {
     this.columns.push({
       name: '',
-      type: ''
+      type: '',
+      isRequiredByUser: ''
     });
   }
 
@@ -128,12 +147,27 @@ export class AccountComponent implements OnInit {
   }
 
 
-  saveContrat(idAccount: number) {
+  saveContrat() {
+    console.log('Selected account :', this.selectedAccount);
+    let cols = {};
+    this.selectedAccount.defaultAccount.columnsAccounts.map((col)=>{
+      cols[col.name]= col.value;
+    })
     const newContrat = {
-      accountId : idAccount,
+      accountId : this.selectedAccount.idAccount,
+      caracteristiques: cols
     };
-    this.contratService.adhererAccount(newContrat).subscribe((response) => {
-      this.contrats.push(response);
+    if (confirm('Êtes-vous sur de vouloir adhérer à ce compte?\nUn administrateur devra examiner votre demande !')) {
+      this.contratService.adhererAccount(newContrat).subscribe((response) => {
+        this.contrats.push(response);
+      });
+    }
+  }
+
+  isClientUnique(idAccount) {
+    this.contratService.isUnique(idAccount).subscribe((response) => {
+      console.log("le client est ", response);
+      this.cl = response;
     });
   }
 

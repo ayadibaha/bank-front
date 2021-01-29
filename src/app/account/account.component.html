@@ -1,7 +1,7 @@
 <div class="panel-header panel-header-sm"></div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="role == 2">
       <button class="btn btn-primary pull-right" (click)="open(mymodal)">
         <i class="now-ui-icons ui-1_simple-add"></i> Comptes
       </button>
@@ -17,7 +17,7 @@
           <div class="table-responsive">
             <table class="table">
               <thead class="text-primary">
-              <th>Id Account</th>
+              <th>Id</th>
               <th>Type</th>
               <th>Description</th>
               <th>Actions</th>
@@ -25,7 +25,7 @@
               <tbody>
               <tr *ngFor="let acc of accounts">
                 <td>
-                  {{ acc.idAccount }}
+                  {{acc.idAccount}}
                 </td>
                 <td>
                   {{ acc.type }}
@@ -40,7 +40,16 @@
                   <button class="btn btn-default" (click)="openModal(demandeModal, acc)">Modifier</button>
                 </td>
                 <td *ngIf="role == 1">
-                  <button class="btn btn-primary" (click)="saveContrat(acc.idAccount)">Adhérer</button> <!-- (click)="saveContrat(acc.idAccount, userid )" -->
+                  <button class="btn btn-primary" (click)="openColumns(mymodalCol,acc)">Adhérer</button>  <!--(click)="saveContrat(acc.idAccount )"-->
+                </td>
+               <!-- <td *ngIf="role == 1 && client==null">
+                  <button class="btn btn-primary" (click)="openColumns(mymodalCol,acc.idAccount)">Adhérer</button>  (click)="saveContrat(acc.idAccount )"
+                </td> -->
+                <td *ngIf="role == 1">
+                  <button class="btn btn-primary" disabled>En cours de Traitement</button>
+                </td>
+                <td *ngIf="role == 1">
+                  <button class="btn btn-primary" disabled>Validé!</button>
                 </td>
               </tr>
               </tbody>
@@ -99,6 +108,10 @@
             <option value="Pourcentage">Pourcentage</option>
           </select>
         </div>
+        <div class="col-2">
+          <label for="isRequired">Required by client</label>
+          <input type="checkbox" id="isRequired" class="form-control" [(ngModel)]="column.isRequiredByUser"/>
+        </div>
       </div>
     </div>
   </div>
@@ -110,6 +123,68 @@
     >
       Enregistrer
     </button>
+  </div>
+</ng-template>
+
+
+<!-- 2 -->
+
+
+<ng-template #mymodalCol let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajout d'un compte</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="text-primary">
+
+          <th>Name</th>
+          <th>Type</th>
+          <th>Value</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let col of selectedAccount.defaultAccount.columnsAccounts">
+            <td>
+              {{ col.name }}
+            </td>
+            <td>
+              {{ col.type }}
+            </td>
+           <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="col.value" placeholder="Valeur"/>
+            </td> -->
+            <td>
+
+                <input *ngIf="col.requiredByUser == true && col.type == 'Texte'" type="text" [(ngModel)]="col.value" class="form-control" placeholder="{{col.name}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Nombre'" type="number" [(ngModel)]="col.value" class="form-control" placeholder="{{col.name}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Pourcentage'" type="text" [(ngModel)]="col.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{col.name}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="col.value" class="form-control" value="{{col.name}}">
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="saveContrat(); modal.close('Save click')"
+    >
+      Enregistrer
+    </button>
+  </div>
   </div>
 </ng-template>
 

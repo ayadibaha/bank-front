@@ -23,6 +23,7 @@ export class ProduitAssuranceComponent implements OnInit {
   newProduitDescription = "";
   garanties = [];
   produitAssurance = [];
+
   constructor(private contratService: ContratAssuranceService, private service: ProduitAssuranceService, private modalService: NgbModal, private auth: AuthenticationService) {
     this.modalOptions = {
       backdrop: 'static',

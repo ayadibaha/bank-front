@@ -11,11 +11,13 @@ declare interface RouteInfo {
 
 let ROUTES_CLIENT :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/mesComptes', title: 'Mes Comptes',  icon: 'design_app', class: '' },
   { path: '/operationBancaire', title: 'operationbancaire',  icon: 'ui-1_simple-add' , class: '' },
   { path: '/listOperationBancaire' , title: 'listOperationBancaire', icon: 'files_single-copy-04', class: '' },
   { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
   { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
   { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
+
 
 ];
 
@@ -74,10 +76,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.auth.currentUser())
-   
+
     if(localStorage.getItem("token")){
       let user : any=jwtDecode(localStorage.getItem("token"));
-    
+
     switch (user.rol){
       case 1: this.role = "Espace Client";
       break;
@@ -87,7 +89,7 @@ export class SidebarComponent implements OnInit {
       break;
       case 4: this.role = "Administration";
       break;
-        
+
     }
     }
   }
