@@ -2,7 +2,7 @@
 <div class="main-content">
   <div class="row">
 <div class="col-md-12" *ngFor="let acc of accounts">
-  <div class="card">
+  <div class="card" *ngIf="acc.etat==1">
     <div class="card-header">
       <h5 class="title">Name of the Account : {{acc.account.type}}</h5>
     </div>

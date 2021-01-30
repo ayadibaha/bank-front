@@ -109,8 +109,18 @@
           </select>
         </div>
         <div class="col-2">
-          <label for="isRequired">Required by client</label>
-          <input type="checkbox" id="isRequired" class="form-control" [(ngModel)]="column.isRequiredByUser"/>
+          <label>
+            <input type="checkbox" name="isRequiredByUser" [(ngModel)]="column.isRequiredByUser">
+            Required by Client
+          </label>
+        </div>
+        <div class="col">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="column.defaultValue"
+            placeholder="Nom Colonne"
+          />
         </div>
       </div>
     </div>
@@ -164,12 +174,11 @@
               <input class="form-control" type="text" [(ngModel)]="col.value" placeholder="Valeur"/>
             </td> -->
             <td>
-
-                <input *ngIf="col.requiredByUser == true && col.type == 'Texte'" type="text" [(ngModel)]="col.value" class="form-control" placeholder="{{col.name}}">
-                <input *ngIf="col.requiredByUser == true && col.type == 'Nombre'" type="number" [(ngModel)]="col.value" class="form-control" placeholder="{{col.name}}">
-                <input *ngIf="col.requiredByUser == true && col.type == 'Pourcentage'" type="text" [(ngModel)]="col.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{col.name}}">
-                <input *ngIf="col.requiredByUser == true && col.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="col.value" class="form-control" value="{{col.name}}">
-
+              <input *ngIf="col.requiredByUser == false"  value="{{col.defaultValue}}" type="text" type="text" class="form-control" readonly>
+              <input *ngIf="col.requiredByUser == true && col.type == 'Texte'" type="text" [(ngModel)]="col.value" class="form-control" placeholder="{{col.defaultValue}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Nombre'" type="number" [(ngModel)]="col.value" class="form-control" placeholder="{{col.defaultValue}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Pourcentage'" type="text" [(ngModel)]="col.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{col.defaultValue}}">
+                <input *ngIf="col.requiredByUser == true && col.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="col.value" class="form-control" value="{{col.defaultValue}}">
             </td>
           </tr>
           </tbody>

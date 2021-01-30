@@ -90,8 +90,9 @@ export class AccountComponent implements OnInit {
     this.columns.push({
       name: '',
       type: '',
-      isRequiredByUser: ''
+      isRequiredByUser: false,
     });
+
   }
 
   saveAccount() {
