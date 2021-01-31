@@ -1,0 +1,66 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste des utilisateurs en attente</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>Type</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Validité</th>
+                <th>CIN</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of not_approved">
+                  <td>
+                    {{
+                      user?.user_type == 1
+                        ? "Client"
+                        : user?.user_type == 2
+                        ? "Employee"
+                        : user?.user_type == 3
+                        ? "Partenaire Assurance"
+                        : "Admin"
+                    }}
+                  </td>
+                  <td>
+                    {{ user?.email }}
+                  </td>
+                  <td>
+                    {{ user?.firstName }} {{ user?.lastName}}
+                  </td>
+                  <td>
+                    {{ user.valid ? "Valide" : "Non Valide" }}
+                  </td>
+                  <td>
+                    {{ user?.cin }}
+                  </td>
+                  <td>
+                    <button (click)="acceptUser(user.id)">
+                      Accept
+                    </button>
+                    <button disabled (click)="refuseUser(user.id)">
+                      Refuse
+                    </button>
+                  </td>
+                </tr>
+                <tr *ngIf="not_approved.length === 0">
+                  <td class="not-found-table" colspan="3">
+                    Vous n'avez pas de contrat en cours!
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

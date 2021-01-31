@@ -1,0 +1,50 @@
+.logo {
+    width: 120px;
+    height: 20px;
+    margin: 16px 24px 16px 0;
+    float: left;
+  }
+
+  [nz-menu] {
+    line-height: 64px;
+  }
+
+  nz-breadcrumb {
+    margin: 16px 0;
+  }
+
+  nz-content {
+    padding: 0 50px;
+  }
+
+  nz-footer {
+    text-align: center;
+  }
+
+  nz-header{
+      background-color:ghostwhite;
+      height: 100px;
+  }
+
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  .inner-content {
+    background:#fff;
+    padding: 24px;
+    min-height: 280px;
+  }
+  .pwd{
+        height: 20px;
+      width : 200px;
+  }
+
+  .username{
+    height: 20px;
+    width : 200px;
+}
+.login{
+    margin-left: 50%;
+}

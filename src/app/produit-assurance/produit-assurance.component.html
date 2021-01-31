@@ -2,7 +2,7 @@
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary pull-right" (click)="open(mymodal)">
+      <button *ngIf="userType == 'insurance_partner'" class="btn btn-primary pull-right" (click)="open(mymodal)">
         <i class="now-ui-icons ui-1_simple-add"></i> Produit Assurance
       </button>
     </div>
@@ -22,7 +22,7 @@
                 <th>Garanties</th>
               </thead>
               <tbody>
-                <tr *ngFor="let produit of produitAssurance">
+                <tr (click)="userType=='client'?openModal(demandeModal, produit):null" *ngFor="let produit of produitAssurance">
                   <td>
                     {{ produit.id }}
                   </td>
@@ -63,6 +63,11 @@
         <input type="text" class="form-control" placeholder="Nom du produit" [(ngModel)]="newProduitName" />
       </div>
     </div>
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <textarea rows="3" type="text" class="form-control" placeholder="Description" [(ngModel)]="newProduitDescription"></textarea>
+      </div>
+    </div>
     <div>
       <button (click)="addGarantie()" class="btn btn-sm btn-add-garantie">
         <i class="now-ui-icons ui-1_simple-add"></i> Garantie
@@ -87,6 +92,10 @@
             <option value="Pourcentage">Pourcentage</option>
           </select>
         </div>
+        <div class="col-2">
+          <label for="isRequired">Required by client</label> 
+          <input type="checkbox" id="isRequired" class="form-control" [(ngModel)]="garantie.isRequired"/>
+        </div>
       </div>
     </div>
   </div>
@@ -95,6 +104,45 @@
       type="button"
       class="btn btn-success"
       (click)="saveProduit(); modal.close('Save click')"
+    >
+      Enregistrer
+    </button>
+  </div>
+</ng-template>
+
+
+<!-- Demande produit modal -->
+<ng-template #demandeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Demander une assurance</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <h3>{{selectedProduct.libelle}}</h3>
+      <p>{{selectedProduct.description}}</p>
+    </div>
+    <div class="col-md-12 px-1">
+      <div *ngFor="let garantie of selectedProduct.template.garanties">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Texte'" type="text" [(ngModel)]="garantie.value" class="form-control" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Nombre'" type="number" [(ngModel)]="garantie.value" class="form-control" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Pourcentage'" type="text" [(ngModel)]="garantie.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{garantie.name}}">
+        <input *ngIf="garantie.requiredByUser == true && garantie.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="garantie.value" class="form-control" value="{{garantie.name}}">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="saveDemande();modal.close('Save click')"
     >
       Enregistrer
     </button>
