@@ -39,17 +39,19 @@
                 <td *ngIf="role == 2">
                   <button class="btn btn-default" (click)="openModal(demandeModal, acc)">Modifier</button>
                 </td>
-                <td *ngIf="role == 1">
-                  <button class="btn btn-primary" (click)="openColumns(mymodalCol,acc)">Adhérer</button>  <!--(click)="saveContrat(acc.idAccount )"-->
-                </td>
                <!-- <td *ngIf="role == 1 && client==null">
                   <button class="btn btn-primary" (click)="openColumns(mymodalCol,acc.idAccount)">Adhérer</button>  (click)="saveContrat(acc.idAccount )"
                 </td> -->
-                <td *ngIf="role == 1">
+                <td *ngIf="role == 1 && acc.etat == 2">
                   <button class="btn btn-primary" disabled>En cours de Traitement</button>
                 </td>
-                <td *ngIf="role == 1">
+                <td *ngIf="role == 1 && acc.etat == 1">
+                <div *ngVar="true as verif">
+                </div>
                   <button class="btn btn-primary" disabled>Validé!</button>
+                </td>
+                <td *ngIf="role == 1 && acc.etat == 3">
+                  <button class="btn btn-primary" (click)="openColumns(mymodalCol,acc)">Adhérer</button>  <!--(click)="saveContrat(acc.idAccount )"-->
                 </td>
               </tr>
               </tbody>
@@ -174,11 +176,12 @@
               <input class="form-control" type="text" [(ngModel)]="col.value" placeholder="Valeur"/>
             </td> -->
             <td>
-              <input *ngIf="col.requiredByUser == false"  value="{{col.defaultValue}}" type="text" type="text" class="form-control" readonly>
+              <label *ngIf="col.requiredByUser == false"> {{col.defaultValue}} </label>
               <input *ngIf="col.requiredByUser == true && col.type == 'Texte'" type="text" [(ngModel)]="col.value" class="form-control" placeholder="{{col.defaultValue}}">
                 <input *ngIf="col.requiredByUser == true && col.type == 'Nombre'" type="number" [(ngModel)]="col.value" class="form-control" placeholder="{{col.defaultValue}}">
                 <input *ngIf="col.requiredByUser == true && col.type == 'Pourcentage'" type="text" [(ngModel)]="col.value" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{col.defaultValue}}">
                 <input *ngIf="col.requiredByUser == true && col.type == 'Vrai/Faux'" type="Checkbox" [(ngModel)]="col.value" class="form-control" value="{{col.defaultValue}}">
+              <input *ngIf="col.requiredByUser == false" type="hidden" [value]="col.defaultValue" [(ngModel)]="col.defaultValue">
             </td>
           </tr>
           </tbody>

@@ -53,6 +53,19 @@ export class AccountComponent implements OnInit {
     this.service.getAccountsClient().subscribe((response) => {
       console.log('les account clients', response);
       this.accountsCl = response;
+      this.accounts.forEach(account => {
+        let verif = false;
+        this.accountsCl.forEach(contrat => {
+          if (account.idAccount === contrat.account.idAccount){
+            verif = true;
+            if (contrat.etat) account.etat = 1;
+            else account.etat = 2;
+          }
+        });
+        if (!verif) account.etat = 3;
+        console.log(account);
+      });
+      console.log(this.accounts);
     });
   }
 
@@ -152,7 +165,10 @@ export class AccountComponent implements OnInit {
     console.log('Selected account :', this.selectedAccount);
     let cols = {};
     this.selectedAccount.defaultAccount.columnsAccounts.map((col)=>{
-      cols[col.name]= col.value;
+      cols[col.name] = col.value;
+      if (col.requiredByUser === false) {
+        cols[col.name] = col.defaultValue;
+      }
     })
     const newContrat = {
       accountId : this.selectedAccount.idAccount,
