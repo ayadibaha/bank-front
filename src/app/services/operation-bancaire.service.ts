@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import config from '../utils/config';
 const port = 8091;
 const url = `http://localhost:${port}`
 
@@ -18,5 +19,11 @@ export class OperationBancaireService {
 
   getoperationList(): Observable<any> {
     return this.client.get(`${url}/api/operation/getAll`);
+  }
+
+  ExtratBancairePDF(): Observable<Blob>
+  {
+    return this.client.get(`${url}/api/operation/pdfreport` , { responseType : 'blob'});
+
   }
 }

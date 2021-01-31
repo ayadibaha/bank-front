@@ -29,7 +29,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'produitAssurance', component: ProduitAssuranceComponent},
 
     { path: 'operationBancaire' , component: OperationBancaireComponent },
-  { path: 'listOperationBancaire' , component: ListOperationBancaireComponent },
+    // { path: 'listOperationBancaire' , component: ListOperationBancaireComponent },
 
     { path: 'contratAssurance', component: ContratAssuranceComponent},
     { path: 'accounts',       component: AccountComponent}

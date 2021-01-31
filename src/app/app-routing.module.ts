@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
 
   { path: 'produitAssurance', component: ProduitAssuranceComponent },
-  {path: 'operationBancaire' , component: OperationBancaire},
+ // {path: 'operationBancaire' , component: OperationBancaire},
   {path: 'listOperationBancaire' , component: ListOperationBancaireComponent},
 
   // { path: 'produitAssurance', component: ProduitAssuranceComponent },
