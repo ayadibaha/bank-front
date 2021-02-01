@@ -14,6 +14,7 @@ export class ContratAccountComponent implements OnInit {
 
   modalOptions: NgbModalOptions;
   contrats = [];
+  valeur = '';
 
   constructor(private service: ContratAccountService, private modalService: NgbModal, private renderer: Renderer2, @Inject(DOCUMENT) private document) {
     this.modalOptions = {
@@ -35,6 +36,9 @@ export class ContratAccountComponent implements OnInit {
     }
   }
 
+  isContratUnique(): void{
+
+  }
 
 
 

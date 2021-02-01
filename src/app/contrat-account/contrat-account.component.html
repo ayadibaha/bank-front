@@ -30,7 +30,12 @@
                   <button class="btn btn-danger" (click)="approveContrat(cont.id)">Approuver ?</button>
                 </td>
                 <td *ngIf="cont.etat == true">
-                  <button class="btn btn-default">Contrat approuvé</button>
+                  <button class="btn btn-default" disabled>Contrat approuvé</button>
+                </td>
+              </tr>
+              <tr *ngIf="contrats.length === 0">
+                <td class="not-found-table" colspan="3">
+                  Vous n'avez pas de contrat en cours!
                 </td>
               </tr>
               </tbody>

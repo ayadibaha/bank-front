@@ -30,6 +30,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { isTemplateExpression } from 'typescript';
 import { ContratAccountComponent } from './contrat-account/contrat-account.component';
 import { UserApprovalComponent } from './user-approval/user-approval.component';
+import { MesComptesComponent } from './mes-comptes/mes-comptes.component';
 
 registerLocaleData(en);
 
@@ -60,7 +61,8 @@ registerLocaleData(en);
     ListOperationBancaireComponent,
     LoginPageComponent,
     AccountComponent,
-    ContratAccountComponent
+    ContratAccountComponent,
+    MesComptesComponent
   ],
  
   bootstrap: [AppComponent],

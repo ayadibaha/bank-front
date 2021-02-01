@@ -15,6 +15,7 @@ declare interface RouteInfo {
 
 let ROUTES_CLIENT :RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+  { path: '/mesComptes', title: 'Mes Comptes',  icon: 'design_app', class: '' },
   { path: '/operationBancaire', title: 'operationbancaire',  icon: 'ui-1_simple-add' , class: '' },
   { path: '/listOperationBancaire' , title: 'listOperationBancaire', icon: 'files_single-copy-04', class: '' },
   { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },

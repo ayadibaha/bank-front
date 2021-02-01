@@ -1,0 +1,31 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+<div class="col-md-12" *ngFor="let acc of accounts">
+  <div class="card" *ngIf="acc.etat==1">
+    <div class="card-header">
+      <h5 class="title">Name of the Account : {{acc.account.type}}</h5>
+    </div>
+    <div class="card-body">
+      <form>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea rows="4" cols="80" class="form-control" value="{{acc.account.description}}" disabled></textarea>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-4 pr-1" *ngFor="let carac of acc.caracAccounts">
+            <div class="form-group">
+              <label>{{carac.name}}</label>
+              <label type="text" class="form-control" >{{carac.value}}</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div></div>
+</div>

@@ -1,42 +1,105 @@
-<div class="panel-header panel-header-sm">
-</div>
+<div class="panel-header panel-header-sm"></div>
 <div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right"  (click)="ExtratBancairePDF();">
+        <i class="now-ui-icons ui-1_simple-add"></i> extra-Bancaire
+      </button>
+      <button class="btn btn-primary pull-right" (click)="open(mymodal)">
+        <i class="now-ui-icons ui-1_simple-add"></i> Virement Bancaire
+      </button>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> virement</h4>
+          <h4 class="card-title">Liste de Virement</h4>
         </div>
         <div class="card-body">
-          <div  style="width: 400px;">
-          <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">idAccount</label>
-              <input type="text" class="form-control" id="idAccount" required [(ngModel)]="op.source" name="idAccount">
-            </div>
-
-            <div class="form-group">
-              <label for="name">Distinataire</label>
-              <input type="text" class="form-control" id="Distinataire" required [(ngModel)]="op.dist" name="Distinataire">
-            </div>
-
-            <div class="form-group">
-              <label for="name">Description</label>
-              <input type="text" class="form-control" id="Description" required [(ngModel)]="op.libelle" name="Description">
-            </div>
-            <div class="form-group">
-              <label for="name">Montant</label>
-              <input type="text" class="form-control" id="Montant" required [(ngModel)]="op.montant" name="Montant">
-            </div>
-            <button type="submit" class="btn btn-primary">ajouterVirement</button>
-          </form>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+              <th>Distinataire</th>
+              <th>Description</th>
+              <th>Montant</th>
+              <th>Taux</th>
+              <th>dateOperation</th>
+              <th>etat</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let ops of operationBancaire | async ">
+                <td>{{ops.dist}}</td>
+                <td>{{ops.libelle}}</td>
+                <td>{{ops.montant}}</td>
+                <td>{{ops.taux}}</td>
+                <td>{{ops.date}}</td>
+                <td>{{ops.etat}}</td>
+              </tr>
+              <tr *ngIf="operationBancaire.length === 0">
+                <td class="not-found-table" colspan="3">Aucun Virment</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-          <div [hidden]="!submitted">
-            <h4>Virement effectuer</h4>
-        <!--   <button class="btn btn-success" (click)="newVirement()">Add</button> -->
-          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" (click)="open(mymodal)">
+        <i class="now-ui-icons ui-1_simple-add"></i> Virement Bancaire
+      </button>
+    </div>
+  </div>
 </div>
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter Virement</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+      <input  type="text" class="form-control" id="idAccount"  placeholder="idAccount" required [(ngModel)]="op.source" name="idAccount">
+    </div>
+    </div>
+    <div class="col-md-12 px-1">
+    <div class="form-group">
+      <input type="text" class="form-control" id="Distinataire" placeholder="Distinataire" required [(ngModel)]="op.dist" name="Distinataire">
+    </div>
+    </div>
+    <div class="col-md-12 px-1">
+    <div class="form-group">
+      <input type="text" class="form-control" id="Description" placeholder="Description" required [(ngModel)]="op.libelle" name="Description">
+    </div>
+    </div>
+    <div class="col-md-12 px-1">
+    <div class="form-group">
+      <input type="text" class="form-control" id="Montant" placeholder="Montant" required [(ngModel)]="op.montant" name="Montant">
+    </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="save(); modal.close('Save click')">
+      Enregistrer
+    </button>
+  </div>
+</ng-template>
