@@ -17,6 +17,7 @@ let ROUTES_CLIENT : RouteInfo[] = [
   { path: '/contratAssurance', title: 'Demander Assurance',  icon: 'design_app', class: '' },
   { path: '/produitAssurance', title: 'Produit Assurance',  icon: 'design_app', class: '' },
   { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
+  { path: '/credit', title: 'Simuler un credit',  icon: 'ui-1_simple-add' , class: '' },
 
 
 ];
@@ -39,6 +40,7 @@ let ROUTES_ADMIN : RouteInfo[] = [
   { path: '/users', title: 'User Approval',  icon: 'files_single-copy-04', class: '' },
   { path: '/accounts', title: 'Accounts',  icon: 'design_app', class: '' },
   { path: '/contratAccount', title: 'Accounts Contract',  icon: 'files_single-copy-04', class: '' },
+  { path: '/creditcheck', title: 'Credit verification',  icon: 'files_single-copy-04', class: '' },
 ];
 
 let ROUTES : RouteInfo[] = [];

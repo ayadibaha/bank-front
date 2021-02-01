@@ -9,7 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
-
+import {CreditComponent } from '../../../app/credit/credit.component';
 import {OperationBancaireComponent} from '../../operation-bancaire/operation-bancaire.component';
 import {ListOperationBancaireComponent} from '../../list-operation-bancaire/list-operation-bancaire.component';
 
@@ -18,6 +18,7 @@ import {AccountComponent} from '../../account/account.component';
 import {ContratAccountComponent} from '../../contrat-account/contrat-account.component';
 import { UserApprovalComponent } from '../../user-approval/user-approval.component';
 import {MesComptesComponent} from '../../mes-comptes/mes-comptes.component';
+import {CreditcheckComponent} from '../../creditcheck/creditcheck.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -40,5 +41,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'contratAccount',       component: ContratAccountComponent},
     { path: 'users',       component: UserApprovalComponent},
     { path: 'mesComptes',       component: MesComptesComponent},
-
+    { path: 'credit',       component: CreditComponent},
+  { path: 'creditcheck',       component: CreditcheckComponent},
 ];

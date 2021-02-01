@@ -31,6 +31,8 @@ import { isTemplateExpression } from 'typescript';
 import { ContratAccountComponent } from './contrat-account/contrat-account.component';
 import { UserApprovalComponent } from './user-approval/user-approval.component';
 import { MesComptesComponent } from './mes-comptes/mes-comptes.component';
+import {CreditComponent} from './credit/credit.component';
+import { CreditcheckComponent } from './creditcheck/creditcheck.component';
 
 registerLocaleData(en);
 
@@ -56,17 +58,18 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
+CreditComponent,
     OperationBancaireComponent,
     ListOperationBancaireComponent,
     LoginPageComponent,
     AccountComponent,
     ContratAccountComponent,
-    MesComptesComponent
+    MesComptesComponent,
+    CreditcheckComponent
   ],
- 
+
   bootstrap: [AppComponent],
- 
+
   providers: [{ provide: NZ_I18N, useValue: en_US }]
 })
 export class AppModule { }
