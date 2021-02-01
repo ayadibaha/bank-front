@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
     returnUrl: string;
     username: string = "";
     password: string = "";
-
+    notAuthorized: Boolean = false;
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -45,8 +45,12 @@ export class LoginPageComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate(["/dashboard"]);
+                    window.location.reload();
                 },
                 error => {
+                    if(error && error.status===403){
+                        this.notAuthorized = true;
+                    }
                     this.loading = false;
                 });
     }

@@ -29,9 +29,9 @@ export class ContratAssuranceService {
     })
   }
 
-  refuserContrat(id) {
+  refuserContrat(id, message) {
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem("token"));
-    return this.client.post(`${config.serverURL}/api/contrat-assurance/${id}/reject`, { body: "Lorem ipsum" }, {
+    return this.client.post(`${config.serverURL}/api/contrat-assurance/${id}/reject`, { body: message ? message : "" }, {
       headers: headers_object
     })
   }

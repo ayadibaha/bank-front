@@ -2,10 +2,15 @@
     background-color:transparent!important;
     color:black;
     font-weight: bolder;
+    font-size: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
 
 .btn-add-garantie:hover{
     box-shadow: none;
+    background-color:black!important;
+    color:white;
 }
 
 .modal-title{
@@ -20,9 +25,15 @@
 }
 
 #isRequired{
-    display:inline-block
+    display:inline-block;
+    width:auto;
+    margin-right:10px;
 }
 
 textarea{
     border: 1px solid #E3E3E3
+}
+
+.borderless{
+    border:none;
 }
