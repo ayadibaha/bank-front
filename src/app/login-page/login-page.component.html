@@ -20,6 +20,7 @@
               <nz-input-group nzPrefixIcon="user">
                 <input  nz-input placeholder="Email" [(ngModel)]="username" [ngModelOptions]="{standalone: true} "/>
               </nz-input-group>
+              <p *ngIf="notAuthorized">Your account is not activated yet!</p>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
@@ -38,7 +39,6 @@
         </form>
     </nz-header>
     <nz-body>
-     
             <img nz-image width="755px" height="500px" nzSrc="../assets/img/assurance.jpg" alt="" />
             <img nz-image width="755px" height="500px" nzSrc="../assets/img/agent.jpg" alt="" />
             <br/>

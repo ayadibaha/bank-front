@@ -16,6 +16,7 @@
                 <th>Validité</th>
                 <th>Liste des garanties</th>
                 <th *ngIf="role == 3">Action</th>
+                <th *ngIf="role == 1">Message Admin</th>
               </thead>
               <tbody>
                 <tr *ngFor="let contract of contracts">
@@ -35,9 +36,10 @@
                     {{ contract?.garanties?.length }}
                   </td>
                   <td *ngIf="role == 3">
-                    <button (click)="acceptContract(contract.id)">Accept</button>
-                    <button (click)="refuseContract(contract.id)">Refuse</button>
+                    <button class="btn btn-primary" style="margin-right:10px" (click)="acceptContract(contract.id)"><i class="now-ui-icons ui-1_check"></i> Accepter</button>
+                    <button class="btn btn-danger" (click)="open(mymodal, contract.id)"><i class="now-ui-icons ui-1_simple-remove"></i> Réfuser</button>
                   </td>
+                  <td *ngIf="role == 1">{{contract?.rejectionMessage}}</td>
                 </tr>
                 <tr *ngIf="contracts.length === 0">
                   <td class="not-found-table" colspan="3">
@@ -52,3 +54,34 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Spécification du raison de refus</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 px-1">
+      <div class="form-group">
+        <textarea rows="3" type="text" class="form-control" placeholder="Ecrivez votre message de refus!" [(ngModel)]="message"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="refuseContract(choosedContract); modal.close('Save click')"
+    >
+      Envoyer
+    </button>
+  </div>
+</ng-template>

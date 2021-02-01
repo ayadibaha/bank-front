@@ -28,6 +28,7 @@ export class ProduitAssuranceComponent implements OnInit {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop',
+      size:"lg",
     }
   }
 
