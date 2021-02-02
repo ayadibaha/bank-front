@@ -17,6 +17,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProduitAssuranceComponent } from '../../../app/produit-assurance/produit-assurance.component';
 import { ContratAssuranceComponent } from '../../contrat-assurance/contrat-assurance.component';
 import { UserApprovalComponent } from '../../user-approval/user-approval.component';
+import { RegisterComponent } from '../../register/register.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { UserApprovalComponent } from '../../user-approval/user-approval.compone
     NotificationsComponent,
     ProduitAssuranceComponent,
     ContratAssuranceComponent,
-    UserApprovalComponent
+    UserApprovalComponent,
+    RegisterComponent
   ]
 })
 

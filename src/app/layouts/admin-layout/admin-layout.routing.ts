@@ -18,6 +18,7 @@ import {AccountComponent} from '../../account/account.component';
 import {ContratAccountComponent} from '../../contrat-account/contrat-account.component';
 import { UserApprovalComponent } from '../../user-approval/user-approval.component';
 import {MesComptesComponent} from '../../mes-comptes/mes-comptes.component';
+import { RegisterComponent } from '../../register/register.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -40,5 +41,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'contratAccount',       component: ContratAccountComponent},
     { path: 'users',       component: UserApprovalComponent},
     { path: 'mesComptes',       component: MesComptesComponent},
-
+    { path: 'register', component: RegisterComponent},
 ];

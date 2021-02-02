@@ -19,9 +19,9 @@ export class OperationBancaireComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.obs.getoperationList().subscribe((response) => {
-      this.operationBancaire = response;
-    });
+    // this.obs.getoperationList().subscribe((response) => {
+    //   this.operationBancaire = response;
+    // });
 
   }
   open(content) {

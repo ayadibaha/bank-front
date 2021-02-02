@@ -55,4 +55,7 @@ export class LoginPageComponent implements OnInit {
                 });
     }
 
+    redirectToRegistre(){
+        this.router.navigate(["/register"]);
+    }
 }

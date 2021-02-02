@@ -1,51 +1,272 @@
-<nz-layout>
-    <nz-header>
-      <div class="logo">
-        <img
-        nz-image
-        width="80px"
-        height="80px"
-        nzSrc="../assets/img/bank.jpg"
-        alt=""
-      />
+<nav
+  id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned"
+>
+  <div class="container">
+    <a class="navbar-brand mr-md-5" [routerLink]="['/home']">
+      <img src="./assets/img/logo.png" style="max-height: 110px" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="navbar_global"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="navbar-collapse collapse"
+      id="navbar_global"
+      [ngbCollapse]="isCollapsed"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/blue.png" />
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button
+              type="button"
+              class="navbar-toggler"
+              (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed"
+              aria-controls="navbar_global"
+            >
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
       </div>
-     
-      
-      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item form-inline">
+          <div class="form-group">
+            <input
+              class="form-control"
+              placeholder="Email"
+              [(ngModel)]="username"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <input
+              class="form-control"
+              type="password"
+              placeholder="mot de passe"
+              [(ngModel)]="password"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <button class="btn btn-primary" (click)="doLogin()">
+              Se connecter
+            </button>
+          </div>
+          <p *ngIf="notAuthorized">Your account is not activated yet!</p>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-warning" (click)="redirectToRegistre()">S'inscrire</button>
+        </li>
       </ul>
-      
-      <form class ="login" nz-form [nzLayout]="'inline'">
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Saisir votre Email!">
-              <nz-input-group nzPrefixIcon="user">
-                <input  nz-input placeholder="Email" [(ngModel)]="username" [ngModelOptions]="{standalone: true} "/>
-              </nz-input-group>
-              <p *ngIf="notAuthorized">Your account is not activated yet!</p>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Verifier votre mot de passe!">
-              <nz-input-group nzPrefixIcon="lock">
-                <input  nz-input type="password" placeholder="mot de passe" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"/>
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control>
-              <button nz-button nzType="primary"  (click)="doLogin()">Se connecter</button>
-              <button nz-button nzType="default" >S'inscrire</button>
-            </nz-form-control>
-          </nz-form-item>
-        </form>
-    </nz-header>
-    <nz-body>
-            <img nz-image width="755px" height="500px" nzSrc="../assets/img/assurance.jpg" alt="" />
-            <img nz-image width="755px" height="500px" nzSrc="../assets/img/agent.jpg" alt="" />
-            <br/>
-            <img nz-image width="755px" height="500px"  nzSrc="../assets/img/bourse.jpg" alt="" />
-            <img nz-image width="755px" height="500px" nzSrc="../assets/img/safe.jpg" alt="" />
-    </nz-body>
-   
-   
-  </nz-layout>
-  
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="position-relative">
+    <!-- shape Hero -->
+    <section class="section section-lg section-shaped pb-250">
+      <div class="shape shape-style-1 shape-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container py-lg-md d-flex">
+        <div class="col px-0">
+          <div class="row">
+            <div class="col-lg-6">
+              <h1 class="display-3 text-white">
+                A beautiful Design System
+                <span>completed with examples</span>
+              </h1>
+              <p class="lead text-white">
+                The design system comes with four pre-built pages to help you
+                get started faster. You can change the text and images and
+                you're good to go.
+              </p>
+              <div class="btn-wrapper">
+                <a
+                  href="https://demos.creative-tim.com/argon-design-system-angular/documentation/alerts?ref=adsa-landing-page"
+                  class="btn btn-info btn-icon mb-3 mb-sm-0"
+                >
+                  <span class="btn-inner--icon"
+                    ><i class="fa fa-code"></i
+                  ></span>
+                  <span class="btn-inner--text">Components</span>
+                </a>
+                <a
+                  href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-landing-page"
+                  class="btn btn-white btn-icon mb-3 mb-sm-0"
+                >
+                  <span class="btn-inner--icon"
+                    ><i class="ni ni-cloud-download-95"></i
+                  ></span>
+                  <span class="btn-inner--text">Download Angular</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg
+          x="0"
+          y="0"
+          viewBox="0 0 2560 100"
+          preserveAspectRatio="none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+    <!-- 1st Hero Variation -->
+  </div>
+  <div class="col-lg-12" style="margin-top: -90px">
+    <div class="row row-grid">
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body">
+            <div
+              _ngcontent-c16=""
+              class="icon icon-shape icon-shape-primary rounded-circle mb-4"
+            >
+              <i
+                _ngcontent-c16=""
+                class="now-ui-icons business_money-coins"
+              ></i>
+            </div>
+            <h6 _ngcontent-c16="" class="text-primary text-uppercase">
+              Opérations Monétaires
+            </h6>
+            <p _ngcontent-c16="" class="description mt-3">
+              Argon is a great free UI package based on Angular that includes
+              the most important components and features.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body">
+            <div
+              _ngcontent-c16=""
+              class="icon icon-shape icon-shape-primary rounded-circle mb-4"
+            >
+              <i _ngcontent-c16="" class="now-ui-icons business_bank"></i>
+            </div>
+            <h6 _ngcontent-c16="" class="text-primary text-uppercase">
+              Variété des comptes
+            </h6>
+            <p _ngcontent-c16="" class="description mt-3">
+              Argon is a great free UI package based on Angular that includes
+              the most important components and features.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body">
+            <div
+              _ngcontent-c16=""
+              class="icon icon-shape icon-shape-primary rounded-circle mb-4"
+            >
+              <i _ngcontent-c16="" class="now-ui-icons health_ambulance"></i>
+            </div>
+            <h6 _ngcontent-c16="" class="text-primary text-uppercase">
+              Assurance
+            </h6>
+            <p _ngcontent-c16="" class="description mt-3">
+              Argon is a great free UI package based on Angular that includes
+              the most important components and features.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section _ngcontent-c16="" class="section section-lg pt-0">
+    <div _ngcontent-c16="" class="container">
+      <div
+        _ngcontent-c16=""
+        class="card bg-gradient-warning shadow-lg border-0"
+      >
+        <div _ngcontent-c16="" class="p-5">
+          <div _ngcontent-c16="" class="row align-items-center">
+            <div _ngcontent-c16="" class="col-lg-8">
+              <h3 _ngcontent-c16="" class="text-white">
+                Nous offrons les meilleurs taux pour nos meilleurs clients.
+              </h3>
+              <p _ngcontent-c16="" class="lead text-white mt-3">Lorem ipsum</p>
+            </div>
+            <div _ngcontent-c16="" class="col-lg-3 ml-lg-auto">
+              <a
+                _ngcontent-c16=""
+                class="btn btn-lg btn-block btn-white"
+                (click)="redirectToRegistre()"
+                >S'inscrire Maintenant</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" [ngClass]="{'has-cards': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'}">
+  <div class="container container-lg" *ngIf="getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'">
+    <div class="row">
+      <div class="col-md-6 mb-5 mb-md-0">
+        <div class="card card-lift--hover shadow border-0">
+          <a [routerLink]="['/landing']" title="Landing Page">
+            <img src="./assets/img/theme/landing.jpg" class="card-img">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-5 mb-lg-0">
+        <div class="card card-lift--hover shadow border-0">
+          <a [routerLink]="['/user-profile']" title="Profile Page">
+            <img src="./assets/img/theme/profile.jpg" class="card-img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row row-grid align-items-center" [ngClass]="{'my-md': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login', 'mb-5':getPath()==='/user-profile' || getPath()==='/register' || getPath()==='/login'}">
+      <div class="col-lg-6">
+        <h3 class="text-primary font-weight-light mb-2">JMLessous - Banque en ligne</h3>
+        <h4 class="mb-0 font-weight-light">Sécurité en ligne pour tout vos transactions!</h4>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center justify-content-md-between">
+      <div class="col-md-6">
+        <div class="copyright">
+          &copy; {{test | date: 'yyyy'}}
+        </div>
+      </div>
+      <div class="col-md-6">
+       
+      </div>
+    </div>
+  </div>
+</footer>

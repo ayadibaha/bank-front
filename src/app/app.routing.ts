@@ -5,12 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes =[
   
   {
     path: 'login',
     component: LoginPageComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',

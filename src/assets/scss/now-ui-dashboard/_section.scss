@@ -1,0 +1,866 @@
+.section {
+    position: relative;
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+}
+
+.section-xl {
+    padding-top: $spacer * 8;
+    padding-bottom: $spacer * 8;
+}
+
+.section-lg {
+    padding-top: $spacer * 6;
+    padding-bottom: $spacer * 6;
+}
+
+.section-sm {
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+}
+
+// Hero sections
+.section-hero {
+    @include media-breakpoint-up(md) {
+        min-height: 500px;
+    }
+}
+
+// Circle sections
+.section-shaped {
+    //margin: 180px 0;
+    position: relative;
+
+    .stars-and-coded{
+        margin-top: 8rem;
+    }
+    
+    .shape {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+
+        span {
+            position: absolute;
+        }
+
+        +.container {
+            position: relative;
+            // padding-top: 6rem;
+            // padding-bottom: 0rem;
+            height: 100%;
+        }
+
+        &.shape-skew {
+
+            +.container {
+                padding-top: 0;
+
+                .col {
+                    margin-top: -100px;
+                }
+            }
+
+            + .shape-container {
+                padding-top: 18rem;
+                padding-bottom: 19rem;
+            }
+        }
+    }
+
+    .shape-skew {
+        transform: skewY(-4deg);
+        transform-origin: 0;
+
+        span {
+            transform: skew(4deg);
+        }
+    }
+
+    // Color variations
+    .shape-primary {
+        background: linear-gradient(150deg, "#7795f8" 15%, #6772e5 70%, shapes-primary-color#555abf 94%);
+
+        :nth-child(1) {
+            background: #7795f8;
+        }
+
+         :nth-child(2) {
+            background: #7b9aff;
+        }
+
+         :nth-child(3) {
+            background: #6f8ff8;
+        }
+
+         :nth-child(4) {
+            background: #76eea7;
+        }
+
+         :nth-child(5) {
+            background: #6adaff;
+        }
+    }
+
+    .shape-default {
+        background: linear-gradient(150deg, "#7795f8" 15%, #6772e5 70%, shapes-primary-color#555abf 94%);
+
+        :nth-child(1) {
+            background: #7795f8;
+        }
+
+         :nth-child(2) {
+            background: #7b9aff;
+        }
+
+         :nth-child(3) {
+            background: #6f8ff8;
+        }
+
+         :nth-child(4) {
+            background: #76eea7;
+        }
+
+         :nth-child(5) {
+            background: #6adaff;
+        }
+    }
+
+    .shape-light {
+        background: linear-gradient(150deg, shapes-light-color("step-1-gradient-bg") 15%, shapes-light-color("step-2-gradient-bg") 70%, shapes-light-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-light-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-light-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-light-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-light-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-light-color("span-5-bg");
+        }
+    }
+
+    .shape-dark {
+        background: linear-gradient(150deg, shapes-dark-color("step-1-gradient-bg") 15%, shapes-dark-color("step-2-gradient-bg") 70%, shapes-dark-color("step-3-gradient-bg") 94%);
+
+         :nth-child(1) {
+            background: shapes-dark-color("span-1-bg");
+        }
+
+         :nth-child(2) {
+            background: shapes-dark-color("span-2-bg");
+        }
+
+         :nth-child(3) {
+            background: shapes-dark-color("span-3-bg");
+        }
+
+         :nth-child(4) {
+            background: shapes-dark-color("span-4-bg");
+        }
+
+         :nth-child(5) {
+            background: shapes-dark-color("span-5-bg");
+        }
+    }
+
+    .shape-style-1 {
+        span {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .span-200 {
+            height: 200px;
+            width: 200px;
+        }
+
+        .span-150 {
+            height: 150px;
+            width: 150px;
+        }
+
+        .span-100 {
+            height: 100px;
+            width: 100px;
+        }
+
+        .span-75 {
+            height: 75px;
+            width: 75px;
+        }
+
+        .span-50 {
+            height: 50px;
+            width: 50px;
+        }
+
+        :nth-child(1) {
+            left: -4%;
+            bottom: auto;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        :nth-child(2) {
+            right: 4%;
+            top: 10%;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        :nth-child(3) {
+            top: 280px;
+            right: 5.66666%;
+            background: rgba(255, 255, 255, .3);
+        }
+
+        :nth-child(4) {
+            top: 320px;
+            right: 7%;
+            background: rgba(255, 255, 255, .15);
+        }
+
+        :nth-child(5) {
+            top: 38%;
+            left: 1%;
+            right: auto;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        :nth-child(6) {
+            width: 200px;
+            height: 200px;
+            top: 44%;
+            left: 10%;
+            right: auto;
+            background: rgba(255, 255, 255, .15);
+        }
+
+        :nth-child(7) {
+            bottom: 50%;
+            right: 36%;
+            background: rgba(255, 255, 255, .04);
+        }
+
+        :nth-child(8) {
+            bottom: 70px;
+            right: 2%;
+            background: rgba(255, 255, 255, .2);
+        }
+
+        :nth-child(9) {
+            bottom: 1%;
+            right: 2%;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        :nth-child(10) {
+            bottom: 1%;
+            left: 1%;
+            right: auto;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        @include media-breakpoint-down(md) {
+            span {
+                height: 120px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            span {
+                height: 90px;
+            }
+        }
+
+        // shape color variations
+        &.shape-primary {
+            background: linear-gradient(150deg, shapes-primary-color("step-1-gradient-bg") 15%, shapes-primary-color("step-2-gradient-bg") 70%, shapes-primary-color("step-3-gradient-bg") 94%);
+        }
+
+        &.shape-default {
+            background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+        }
+
+        &.shape-light {
+            background: linear-gradient(150deg, shapes-light-color("step-1-gradient-bg") 15%, shapes-light-color("step-2-gradient-bg") 70%, shapes-light-color("step-3-gradient-bg") 94%);
+
+        }
+
+        &.shape-dark {
+            background: linear-gradient(150deg, shapes-dark-color("step-1-gradient-bg") 15%, shapes-dark-color("step-2-gradient-bg") 70%, shapes-dark-color("step-3-gradient-bg") 94%);
+        }
+    }
+
+    // Styles - works with a color variation class (e.g shapes-default)
+    .shape-style-2 {
+        span {
+            height: 190px;
+        }
+
+        .span-sm {
+            height: 100px;
+        }
+
+         :nth-child(1) {
+            width: 33.33333%;
+            top: 0;
+            left: -16.66666%;
+        }
+
+         :nth-child(2) {
+            width: 33.33333%;
+            top: 0;
+            left: 16.66666%;
+            right: auto;
+        }
+
+         :nth-child(3) {
+            width: 33.33333%;
+            left: 49.99999%;
+            bottom: auto;
+        }
+
+         :nth-child(4) {
+            width: 33.33333%;
+            top: 55%;
+            right: -16.66666%;
+        }
+
+         :nth-child(5) {
+            width: 33.33333%;
+            bottom: 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            span {
+                height: 120px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            span {
+                height: 90px;
+            }
+        }
+    }
+
+    .shape-style-3 {
+        span {
+            height: 140px;
+        }
+
+        .span-sm {
+            height: 100px;
+        }
+
+        :nth-child(1) {
+            width: 66%;
+            left: -16.66666%;
+            bottom: auto;
+        }
+
+        :nth-child(2) {
+            width: 40%;
+            top: 54%;
+            //height: 320px;
+            right: -16.66666%;
+        }
+
+        :nth-child(3) {
+            width: 33.33333%;
+            top: 34%;
+            left: -16.66666%;
+            right: auto;
+        }
+
+        :nth-child(4) {
+            width: 60%;
+            bottom: 0;
+            right: -16.66666%;
+            opacity: .6;
+        }
+
+        :nth-child(5) {
+            width: 33.33333%;
+            bottom: 0;
+        }
+
+        @include media-breakpoint-down(md) {
+            span {
+                height: 120px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            span {
+                height: 90px;
+            }
+        }
+    }
+
+}
+
+// Device illustrations used on shape sections
+.device-ill {
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    width: 1287px;
+    left: 50%;
+    margin-left: -644px;
+    transform: scale(.5) rotate(-12deg) translateX(50px);
+    transform-origin: 50% 20%;
+    will-change: transform;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius;
+        padding: .875rem;
+        background: #fff;
+        box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, .25), 0 2px 6px rgba(0, 21, 64, .14), 0 10px 20px rgba(0, 21, 64, .05);
+    }
+
+    .tablet-landscape {
+        width: 512px;
+        height: 352px;
+        margin: 115px 50px 0;
+    }
+}
+
+@media (min-width:670px) {
+    .device-ill {
+        flex-wrap: wrap;
+        width: 512px;
+        margin-left: -50px;
+        top: 215px;
+        transform: rotate(-12deg);
+        transform-origin: 100% 0;
+
+        [class^=tablet] {
+            margin: 0;
+        }
+
+        .tablet-landscape {
+            width: 512px;
+            height: 352px;
+        }
+    }
+}
+
+@media (min-width:880px) {
+    .device-ill {
+        width: 829px;
+        margin-left: -10px;
+        top: 20px;
+
+        .tablet-landscape {
+            align-self: flex-end;
+            margin-right: 50px;
+        }
+
+        .phone-big {
+            display: flex;
+            width: 267px;
+            height: 553px;
+        }
+    }
+}
+
+// Profile cover
+.section-profile-cover {
+    height: 580px;
+    background-size: cover;
+    background-position: center center;
+}
+
+@include media-breakpoint-down(md) {
+    .section-profile-cover {
+        height: 400px;
+    }
+}
+
+// Components section (for demo)
+.section-components {
+    >.form-control {
+        +.form-control {
+            margin-top: .5rem;
+        }
+    }
+
+    >.nav+.nav,
+    >.alert+.alert,
+    >.navbar+.navbar,
+    >.progress+.progress,
+    >.progress+.btn,
+    .badge,
+    .btn {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    .btn-group {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        .btn {
+            margin: 0;
+        }
+    }
+
+    .alert {
+        margin: 0;
+
+        +.alert {
+            margin-top: 1.25rem;
+        }
+    }
+
+    .badge {
+        margin-right: .5rem;
+    }
+
+    .modal-footer {
+        .btn {
+            margin: 0;
+        }
+    }
+}
+
+
+.floating-cards {
+ -webkit-perspective:1500px;
+ perspective:1500px;
+ position:relative;
+ -webkit-box-align:center;
+ -ms-flex-align:center;
+ align-items:center
+}
+.floating-cards>div {
+ position:absolute;
+ -ms-flex-negative:0;
+ flex-shrink:0;
+ border-radius:8px;
+ overflow:hidden
+}
+.floating-cards .shine {
+ position:absolute;
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+ pointer-events:none
+}
+// Contents
+//
+// Navbar
+// Navbar brand
+// Navbar nav
+// Navbar text
+// Navbar divider
+// Responsive navbar
+// Navbar position
+// Navbar themes
+
+
+// Navbar
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // allow us to do the line break for collapsing content
+    align-items: center;
+    justify-content: space-between; // space out brand from logo
+    padding: $navbar-padding-y $navbar-padding-x;
+  
+    // Because flex properties aren't inherited, we need to redeclare these first
+    // few properties so that content nested within behave properly.
+    > .container,
+    > .container-fluid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  
+  
+  // Navbar brand
+  //
+  // Used for brand, project, or site names.
+  
+  .navbar-brand {
+    display: inline-block;
+    padding-top: $navbar-brand-padding-y;
+    padding-bottom: $navbar-brand-padding-y;
+    margin-right: $navbar-padding-x;
+    font-size: $navbar-brand-font-size;
+    line-height: inherit;
+    white-space: nowrap;
+  
+    @include hover-focus {
+      text-decoration: none;
+    }
+  }
+  
+  
+  // Navbar nav
+  //
+  // Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+  
+  .navbar-nav {
+    display: flex;
+    flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  
+    .nav-link {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    .dropdown-menu {
+      position: static;
+      float: none;
+    }
+  }
+  
+  
+  // Navbar text
+  //
+  //
+  
+  .navbar-text {
+    display: inline-block;
+    padding-top: $nav-link-padding-y;
+    padding-bottom: $nav-link-padding-y;
+  }
+  
+  
+  // Responsive navbar
+  //
+  // Custom styles for responsive collapsing and toggling of navbar contents.
+  // Powered by the collapse Bootstrap JavaScript plugin.
+  
+  // When collapsed, prevent the toggleable navbar contents from appearing in
+  // the default flexbox row orientation. Requires the use of `flex-wrap: wrap`
+  // on the `.navbar` parent.
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    // For always expanded or extra full navbars, ensure content aligns itself
+    // properly vertically. Can be easily overridden with flex utilities.
+    align-items: center;
+  }
+  
+  // Button for toggling the navbar when in its collapsed state
+  .navbar-toggler {
+    padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+    font-size: $navbar-toggler-font-size;
+    line-height: 1;
+    background-color: transparent; // remove default button style
+    border: $border-width solid transparent; // remove default button style
+    @include border-radius($navbar-toggler-border-radius);
+  
+    @include hover-focus {
+      text-decoration: none;
+    }
+  
+    // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+  }
+  
+  // Keep as a separate element so folks can easily override it with another icon
+  // or image file as needed.
+  .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+  }
+  
+  // Generate series of `.navbar-expand-*` responsive classes for configuring
+  // where your navbar collapses.
+  .navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $grid-breakpoints);
+      $infix: breakpoint-infix($next, $grid-breakpoints);
+  
+      &#{$infix} {
+        @include media-breakpoint-down($breakpoint) {
+          > .container,
+          > .container-fluid {
+            padding-right: 0;
+            padding-left: 0;
+          }
+        }
+  
+        @include media-breakpoint-up($next) {
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+  
+          .navbar-nav {
+            flex-direction: row;
+  
+            .dropdown-menu {
+              position: absolute;
+            }
+  
+            .nav-link {
+              padding-right: $navbar-nav-link-padding-x;
+              padding-left: $navbar-nav-link-padding-x;
+            }
+          }
+  
+          // For nesting containers, have to redeclare for alignment purposes
+          > .container,
+          > .container-fluid {
+            flex-wrap: nowrap;
+          }
+  
+          .navbar-collapse {
+            display: flex !important;  // stylelint-disable-line declaration-no-important
+  
+            // Changes flex-bases to auto because of an IE10 bug
+            flex-basis: auto;
+          }
+  
+          .navbar-toggler {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  // Navbar themes
+  //
+  // Styles for switching between navbars with light or dark background.
+  
+  // Dark links against a light background
+  .navbar-light {
+    .navbar-brand {
+      color: $navbar-light-active-color;
+  
+      @include hover-focus {
+        color: $navbar-light-active-color;
+      }
+    }
+  
+    .navbar-nav {
+      .nav-link {
+        color: $navbar-light-color;
+  
+        @include hover-focus {
+          color: $navbar-light-hover-color;
+        }
+  
+        &.disabled {
+          color: $navbar-light-disabled-color;
+        }
+      }
+  
+      .show > .nav-link,
+      .active > .nav-link,
+      .nav-link.show,
+      .nav-link.active {
+        color: $navbar-light-active-color;
+      }
+    }
+  
+    .navbar-toggler {
+      color: $navbar-light-color;
+      border-color: $navbar-light-toggler-border-color;
+    }
+  
+    .navbar-toggler-icon {
+      background-image: $navbar-light-toggler-icon-bg;
+    }
+  
+    .navbar-text {
+      color: $navbar-light-color;
+      a {
+        color: $navbar-light-active-color;
+  
+        @include hover-focus {
+          color: $navbar-light-active-color;
+        }
+      }
+    }
+  }
+  
+  // White links against a dark background
+  .navbar-dark {
+    .navbar-brand {
+      color: $navbar-dark-active-color;
+  
+      @include hover-focus {
+        color: $navbar-dark-active-color;
+      }
+    }
+  
+    .navbar-nav {
+      .nav-link {
+        color: $navbar-dark-color;
+  
+        @include hover-focus {
+          color: $navbar-dark-hover-color;
+        }
+  
+        &.disabled {
+          color: $navbar-dark-disabled-color;
+        }
+      }
+  
+      .show > .nav-link,
+      .active > .nav-link,
+      .nav-link.show,
+      .nav-link.active {
+        color: $navbar-dark-active-color;
+      }
+    }
+  
+    .navbar-toggler {
+      color: $navbar-dark-color;
+      border-color: $navbar-dark-toggler-border-color;
+    }
+  
+    .navbar-toggler-icon {
+      background-image: $navbar-dark-toggler-icon-bg;
+    }
+  
+    .navbar-text {
+      color: $navbar-dark-color;
+      a {
+        color: $navbar-dark-active-color;
+  
+        @include hover-focus {
+          color: $navbar-dark-active-color;
+        }
+      }
+    }
+  }
+  
