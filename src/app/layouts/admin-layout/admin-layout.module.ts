@@ -19,6 +19,7 @@ import { ContratAssuranceComponent } from '../../contrat-assurance/contrat-assur
 import { UserApprovalComponent } from '../../user-approval/user-approval.component';
 import { RegisterComponent } from '../../register/register.component';
 
+// import { CreditcheckComponent} from '../../creditcheck//creditcheck.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import { RegisterComponent } from '../../register/register.component';
     ProduitAssuranceComponent,
     ContratAssuranceComponent,
     UserApprovalComponent,
-    RegisterComponent
+    RegisterComponent,
+    // CreditcheckComponent
   ]
 })
 
