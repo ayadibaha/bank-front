@@ -9,15 +9,15 @@ import {OperationBancaire} from './module/OperationBancaire';
 import {ListOperationBancaireComponent} from './list-operation-bancaire/list-operation-bancaire.component';
 import { UserApprovalComponent } from './user-approval/user-approval.component';
 import {MesComptesComponent} from './mes-comptes/mes-comptes.component';
-import {CreditComponent} from './credit/credit.component';
-import {CreditcheckComponent} from './creditcheck/creditcheck.component';
+// import {CreditComponent} from './credit/credit.component';
+// import {CreditcheckComponent} from './creditcheck/creditcheck.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'produitAssurance', component: ProduitAssuranceComponent },
-  { path: 'credit', component: CreditComponent },
-  { path: 'creditcheck', component: CreditcheckComponent },
+  // { path: 'credit', component: CreditComponent },
+  // { path: 'creditcheck', component: CreditcheckComponent },
  // {path: 'operationBancaire' , component: OperationBancaire},
   {path: 'listOperationBancaire' , component: ListOperationBancaireComponent},
   {path: 'users' , component: UserApprovalComponent},
